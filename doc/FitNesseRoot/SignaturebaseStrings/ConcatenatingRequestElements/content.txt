@@ -27,3 +27,10 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 |http://abc/path/?c=value%203&b=value 2&a=1|
 
 !|Then the base string matches|a=1&b=value%202&c=value%203|
+
+!4 Parameters are included when they have no value
+!|Given the request elements |
+|url                         |
+|http://abc/path/?a=1&b=&c=3|
+
+!|Then the base string matches|a=1&b=&c=3|
