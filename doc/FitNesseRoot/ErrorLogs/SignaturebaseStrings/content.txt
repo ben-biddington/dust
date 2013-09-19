@@ -1,7 +1,0 @@
-!3 !-fit:Runner.exe-!
-|'''Date: '''| 10:06:41 PM (NZST) on Thursday, September 19, 2013 |
-|'''Test Page: '''|.SignaturebaseStrings|
-|'''Command: '''| !-Runner.exe -r fitnesse.fitserver.FitServer,fit.dll C:\Users\Ben\Documents\Sauce\dust\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll Benito 8080 74-! |
-|'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.835 seconds |
-
