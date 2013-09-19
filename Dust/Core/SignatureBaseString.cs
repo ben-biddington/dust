@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Wiki.Machinery {
+namespace Dust.Core {
 	public class SignatureBaseString {
 		private readonly string _url;
 

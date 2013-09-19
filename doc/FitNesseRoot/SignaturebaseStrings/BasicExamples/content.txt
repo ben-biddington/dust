@@ -14,3 +14,30 @@
 |HTTP://Example.com:80/resource?id=123|
 
 !|Then the base string contains|http://example.com/resource|
+
+!3 Ports 80 and 443 are omitted, anything else is included
+
+Port 80:
+
+!|Given the pieces             |
+|url                           |
+|http://example.com:80/resource|
+
+!|Then the base string contains|http://example.com/resource|
+
+Port 443:
+This also shows that the '''https''' schema is also used.
+
+!|Given the pieces               |
+|url                             |
+|https://example.com:443/resource|
+
+!|Then the base string contains|https://example.com/resource|
+
+Any other port, say '''1337'''
+
+!|Given the pieces               |
+|url                             |
+|HTTP://Example.com:1337/resource|
+
+!|Then the base string contains|http://example.com:1337/resource|
