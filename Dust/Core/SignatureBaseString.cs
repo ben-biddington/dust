@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Linq;
 
 namespace Dust.Core {
 	public class Request {
@@ -15,8 +17,12 @@ namespace Dust.Core {
 
 		public string Value {
 			get {
-				return RequestMethod + RequestUrl;
+				return RequestMethod + RequestUrl + Parameters;
 			}
+		}
+
+		protected string Parameters {
+			get { return new ParameterPart(_request).Value; }
 		}
 
 		protected string RequestMethod {

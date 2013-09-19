@@ -1,7 +1,12 @@
 !3 !-fit:Runner.exe-!
-|'''Date: '''| 9:38:02 PM (NZST) on Thursday, September 19, 2013 |
+|'''Date: '''| 10:06:06 PM (NZST) on Thursday, September 19, 2013 |
 |'''Test Page: '''|.SignaturebaseStrings.ConcatenatingRequestElements|
-|'''Command: '''| !-Runner.exe -r fitnesse.fitserver.FitServer,fit.dll C:\Users\Ben\Documents\Sauce\dust\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll Benito 8080 56-! |
+|'''Command: '''| !-Runner.exe -r fitnesse.fitserver.FitServer,fit.dll C:\Users\Ben\Documents\Sauce\dust\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll Benito 8080 73-! |
 |'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.712 seconds |
+|'''Time elapsed: '''| 0.679 seconds |
 
+----
+'''Standard Output:'''
+{{{ GEThttp://abc/
+GEThttp://abc/path/a=1&b=2&c=3
+ }}}
