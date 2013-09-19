@@ -6,3 +6,11 @@
 |http://abc       |
 
 !|Then the base string contains|http://abc|
+
+!3 The scheme and authority must be lower-cased and query is not included
+
+!|Given the pieces                    |
+|url                                  |
+|HTTP://Example.com:80/resource?id=123|
+
+!|Then the base string contains|http://example.com/resource|
