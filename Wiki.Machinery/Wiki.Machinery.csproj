@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RequestElementCollectionFixture.cs" />
+    <Compile Include="SignatureBaseStringExtensions.cs" />
     <Compile Include="SignatureBaseStringFlowFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

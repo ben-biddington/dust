@@ -1,9 +1,9 @@
 !3 !-fit:Runner.exe-!
-|'''Date: '''| 9:41:00 PM (NZST) on Thursday, September 19, 2013 |
-|'''Test Page: '''|.SignaturebaseStrings|
-|'''Command: '''| !-Runner.exe -r fitnesse.fitserver.FitServer,fit.dll C:\Users\Ben\Documents\Sauce\dust\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll Benito 8080 59-! |
+|'''Date: '''| 9:40:54 PM (NZST) on Thursday, September 19, 2013 |
+|'''Test Page: '''|.SignaturebaseStrings.ConstructingTheRequestUrl|
+|'''Command: '''| !-Runner.exe -r fitnesse.fitserver.FitServer,fit.dll C:\Users\Ben\Documents\Sauce\dust\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll Benito 8080 58-! |
 |'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.558 seconds |
+|'''Time elapsed: '''| 0.718 seconds |
 
 ----
 '''Standard Output:'''

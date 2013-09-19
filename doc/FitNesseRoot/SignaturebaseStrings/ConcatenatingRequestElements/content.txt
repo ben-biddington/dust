@@ -1,0 +1,12 @@
+The following items MUST be concatenated in order into a single string. Each item is encoded and separated by an ‘&’ character (ASCII code 38), even if empty.
+
+The HTTP request method used to send the request. Value MUST be uppercase, for example: HEAD, GET , POST, etc.
+The request URL from Section 9.1.2.
+The normalized request parameters string from Section 9.1.1.
+See Signature Base String example in Appendix A.5.1.
+
+!|Given the request elements   |
+|http request method|url       |
+|get                |http://abc|
+
+!|Then the base string matches|GET|

@@ -9,7 +9,7 @@ namespace Dust.Core {
 		}
 
 		internal string Value {
-			get { return string.Format("{0}://{1}", _uri.Scheme, Authority); }
+			get { return string.Format("{0}://{1}{2}", _uri.Scheme, Authority, _uri.AbsolutePath); }
 		}
 
 		private string Authority {
