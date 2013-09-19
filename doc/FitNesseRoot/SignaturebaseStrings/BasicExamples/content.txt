@@ -1,0 +1,8 @@
+[[The Signature Base String][http://oauth.net/core/1.0/]] includes the request absolute URL, tying the signature to a specific endpoint. The URL used in the Signature Base String MUST include the scheme, authority, and path, and MUST exclude the query and fragment as defined by [[RFC3986][http://oauth.net/core/1.0/#RFC3986]] section 3.
+
+!3 It includes the full earl
+!|Given the pieces|
+|url              |
+|http://abc       |
+
+!|Then the base string contains|http://abc|
