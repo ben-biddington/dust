@@ -17,15 +17,25 @@ namespace Dust.Core {
 				Array.Sort(keys, new KeyComparison());
 
 				foreach (var key in keys) {
-					result.Add(string.Format("{0}={1}", key, nameValueCollection[key]));
+					result.Add(string.Format("{0}={1}", key, Escape(nameValueCollection[key])));
 				}
 
 				return string.Join("&", result.ToArray());
 			}
 		}
 
+		private object Escape(string what) {
+			return new UrlEncoding().Escape(what);
+		}
+
 		internal ParameterPart(Request request) {
 			_request = request;
+		}
+	}
+
+	internal class UrlEncoding {
+		internal string Escape(string what) {
+			return Uri.EscapeDataString(what);
 		}
 	}
 

@@ -12,9 +12,18 @@ See Signature Base String example in Appendix A.5.1.
 !|Then the base string matches|GET|
 
 !3 Any request parameters are normalized
-!4 Sorted by key
+See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
+
+!4 Parameters are present sorted by key
 !|Given the request elements |
 |url                         |
 |http://abc/path/?c=3&b=2&a=1|
 
 !|Then the base string matches|a=1&b=2&c=3|
+
+!4 Parameter values are percent encoded
+!|Given the request elements |
+|url                         |
+|http://abc/path/?c=value%203&b=value 2&a=1|
+
+!|Then the base string matches|a=1&b=value%202&c=value%203|
