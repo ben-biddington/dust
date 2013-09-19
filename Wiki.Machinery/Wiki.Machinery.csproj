@@ -56,6 +56,12 @@
     <Compile Include="SignatureBaseStringFlowFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dust\Dust.csproj">
+      <Project>{E94230B2-B11C-4008-BE78-A4638C2490F4}</Project>
+      <Name>Dust</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
