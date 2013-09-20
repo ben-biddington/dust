@@ -5,6 +5,8 @@ The request URL from Section 9.1.2.
 The normalized request parameters string from Section 9.1.1.
 See Signature Base String example in Appendix A.5.1.
 
+!3 It includes the HTTP request method used to send the request
+!4 Value MUST be uppercase
 !|Given the request elements   |
 |http request method|url       |
 |get                |http://abc|
