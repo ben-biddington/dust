@@ -23,7 +23,7 @@
 
         public override string ToString()
         {
-            return string.Format("{0}={1}", Name, Escape(Value));
+            return string.Format("{0}={1}", Escape(Name), Escape(Value));
         }
 
         private string Escape(string what)

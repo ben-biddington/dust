@@ -68,8 +68,13 @@
   <ItemGroup>
     <Compile Include="Core\EarlPart.cs" />
     <Compile Include="Core\Parameter.cs" />
+    <Compile Include="Core\ParameterComparison.cs" />
     <Compile Include="Core\ParameterPart.cs" />
+    <Compile Include="Core\Parameters.cs" />
+    <Compile Include="Core\QueryString.cs" />
     <Compile Include="Core\SignatureBaseString.cs" />
+    <Compile Include="Core\UrlEncoding.cs" />
+    <Compile Include="Lang\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
