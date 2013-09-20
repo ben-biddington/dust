@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Core\SignatureBaseStringParts\ConsumerKey.cs" />
     <Compile Include="Core\SignatureBaseStringParts\EarlPart.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Name.cs" />
     <Compile Include="Core\SignatureBaseStringParts\OAuthParameters.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameter.cs" />
     <Compile Include="Core\SignatureBaseStringParts\ParameterComparison.cs" />
