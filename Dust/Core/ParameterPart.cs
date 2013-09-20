@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 namespace Dust.Core {
@@ -8,25 +9,24 @@ namespace Dust.Core {
 
 		internal string Value {
 			get {
-				var nameValueCollection = HttpUtility.ParseQueryString(_request.Url.Query);
+			    var parameters = Parameters();
 
-				var result = new List<string>();
-
-				var keys = nameValueCollection.AllKeys;
-
-				Array.Sort(keys, new KeyComparison());
-
-				foreach (var key in keys) {
-					result.Add(string.Format("{0}={1}", key, Escape(nameValueCollection[key])));
-				}
+			    var result = parameters.Select(it => it.ToString());
 
 				return string.Join("&", result.ToArray());
 			}
 		}
 
-		private object Escape(string what) {
-			return new UrlEncoding().Escape(what);
-		}
+	    private IEnumerable<Parameter> Parameters()
+	    {
+	        var nameValueCollection = HttpUtility.ParseQueryString(_request.Url.Query);
+
+	        var keys = nameValueCollection.AllKeys;
+
+	        Array.Sort(keys, new KeyComparison());
+
+	        return keys.Select(key => new Parameter(key, nameValueCollection[key]));
+	    }
 
 		internal ParameterPart(Request request) {
 			_request = request;

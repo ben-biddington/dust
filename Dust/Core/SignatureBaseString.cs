@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Linq;
 
 namespace Dust.Core {
 	public class Request {

@@ -34,3 +34,12 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 |http://abc/path/?a=1&b=&c=3|
 
 !|Then the base string matches|a=1&b=&c=3|
+
+!4 If two or more parameters share the same name, they are sorted by their value.
+
+!|Given the request elements |
+|url                         |
+|http://abc/path/?a=2a=1&b=3|
+
+!|Then the base string matches|a=1&a=2&b=3|
+
