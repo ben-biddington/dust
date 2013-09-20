@@ -43,3 +43,10 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 
 !|Then the base string matches|a=1&a=2&b=3&c=x&c=y&c=z|
 
+!4 It includes parameters in the [[OAuth HTTP Authorization header][http://oauth.net/core/1.0/#auth_header_authorization]] excluding the realm parameter
+
+!|Given the request elements |
+|url                         |
+|http://abc/path/?phil=berk|
+
+!|Then the base string matches|oauth_version=1.0|

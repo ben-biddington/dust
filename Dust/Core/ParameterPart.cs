@@ -1,4 +1,7 @@
-﻿namespace Dust.Core
+﻿using System.Collections.Generic;
+using Dust.Lang;
+
+namespace Dust.Core
 {
     internal class ParameterPart
     {
@@ -16,13 +19,31 @@
         {
             get
             {
-                return new QueryString(_request).Parameters;
+                return new QueryString(_request).Parameters.Tap(it => it.Add(OAuthParameters));
+            }
+        }
+
+        private Parameter[] OAuthParameters {
+            get
+            {
+                return new OAuthParameters().List().ToArray();
             }
         }
 
         internal ParameterPart(Request request)
         {
             _request = request;
+        }
+    }
+
+    internal class OAuthParameters
+    {
+        internal List<Parameter> List()
+        {
+            return new List<Parameter>()
+            {
+                new Parameter("oauth_version", "1.0")
+            };
         }
     }
 }
