@@ -33,6 +33,11 @@ namespace Wiki.Machinery {
             return new YesNoFixture(BaseString.Contains(what), "Expected [" + BaseString.Value + "] to contain [" + what + "]", 2);
 		}
 
+        public Fixture And_it_does_not_contain(string what)
+        {
+            return new YesNoFixture(BaseString.Omits(what), "Expected [" + BaseString.Value + "] NOT to contain [" + what + "]", 2);
+        }
+
 		private SignatureBaseString BaseString {
 			get {
 				return new SignatureBaseString(
