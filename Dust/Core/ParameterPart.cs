@@ -9,26 +9,25 @@ namespace Dust.Core {
 
 		internal string Value {
 			get {
-			    var parameters = Parameters();
-
-			    var result = parameters.Select(it => it.ToString());
-
-				return string.Join("&", result.ToArray());
+			    return string.Join("&", Parameters.Select(it => it.ToString()).ToArray());
 			}
 		}
 
-	    private IEnumerable<Parameter> Parameters()
+	    private IEnumerable<Parameter> Parameters
 	    {
-	        var nameValueCollection = HttpUtility.ParseQueryString(_request.Url.Query);
+	        get
+	        {
+	            var nameValueCollection = HttpUtility.ParseQueryString(_request.Url.Query);
 
-	        var keys = nameValueCollection.AllKeys;
+	            var keys = nameValueCollection.AllKeys;
 
-	        Array.Sort(keys, new KeyComparison());
+	            Array.Sort(keys, new KeyComparison());
 
-	        return keys.Select(key => new Parameter(key, nameValueCollection[key]));
+	            return keys.Select(key => new Parameter(key, nameValueCollection[key]));
+	        }
 	    }
 
-		internal ParameterPart(Request request) {
+	    internal ParameterPart(Request request) {
 			_request = request;
 		}
 	}
