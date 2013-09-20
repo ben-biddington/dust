@@ -8,12 +8,13 @@ namespace Dust.Core {
 		private readonly Request _request;
 
 		internal string Value {
-			get {
-			    return string.Join("&", Parameters.Select(it => it.ToString()).ToArray());
+			get
+			{
+			    return Parameters.ToString();
 			}
 		}
 
-	    private IEnumerable<Parameter> Parameters
+        private Parameters Parameters
 	    {
 	        get
 	        {
@@ -23,7 +24,9 @@ namespace Dust.Core {
 
 	            Array.Sort(keys, new KeyComparison());
 
-	            return keys.Select(key => new Parameter(key, nameValueCollection[key]));
+	            var parameters = keys.Select(key => new Parameter(key, nameValueCollection[key]));
+
+	            return new Parameters(parameters.ToArray());
 	        }
 	    }
 
@@ -43,4 +46,19 @@ namespace Dust.Core {
 			return string.Compare(x, y);
 		}
 	}
+
+    internal class Parameters
+    {
+        private readonly Parameter[] _args;
+
+        internal Parameters(params Parameter[] args)
+        {
+            _args = args;
+        }
+
+        public override string ToString()
+        {
+            return string.Join("&", _args.Select(it => it.ToString()).ToArray());
+        }
+    }
 }
