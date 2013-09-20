@@ -4,7 +4,7 @@ using fit.Fixtures;
 
 namespace Wiki.Machinery
 {
-    public class NameValueCollectionFixture : RowEntryFixture
+    public class OAuthParameterCollectingFixture : RowEntryFixture
     {
         public string ConsumerKey,Token;
 

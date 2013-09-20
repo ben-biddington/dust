@@ -20,7 +20,7 @@ namespace Wiki.Machinery {
 
         public Fixture And_oauth_options()
         {
-            return new NameValueCollectionFixture().Tap(it =>
+            return new OAuthParameterCollectingFixture().Tap(it =>
                 it.Added += opts => _oauthParameters = opts
             );
         }
