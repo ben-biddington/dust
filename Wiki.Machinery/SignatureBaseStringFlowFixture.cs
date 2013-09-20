@@ -18,6 +18,12 @@ namespace Wiki.Machinery {
 			return _parts = new RequestElementCollectionFixture();
 		}
 
+		public void Given_the_request_parameters(string what) {
+			_parts = new RequestElementCollectionFixture() {
+				Url = string.Format("http://xxx?{0}", what)
+			};
+		}
+
         public Fixture And_oauth_options()
         {
             return new OAuthParameterCollectingFixture().Tap(it =>
