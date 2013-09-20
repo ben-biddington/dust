@@ -8,18 +8,21 @@ namespace Dust.Core.SignatureBaseStringParts
         private readonly TokenKey _tokenKey;
         private readonly string _signatureMethod;
         private readonly string _timestamp;
+        private readonly string _nonce;
 
-        public OAuthParameters(ConsumerKey key, TokenKey tokenKey, string signatureMethod, string timestamp)
+        public OAuthParameters(ConsumerKey key, TokenKey tokenKey, string signatureMethod, string timestamp, string nonce)
         {
             _key = key;
             _tokenKey = tokenKey;
             _signatureMethod = signatureMethod;
             _timestamp = timestamp;
+            _nonce = nonce;
         }
 
         public static OAuthParameters Empty = new OAuthParameters(
             new ConsumerKey(string.Empty), 
             new TokenKey(string.Empty), 
+            string.Empty, 
             string.Empty, 
             string.Empty
         );
@@ -32,7 +35,8 @@ namespace Dust.Core.SignatureBaseStringParts
                 new Parameter("oauth_consumer_key", _key.Value),
                 new Parameter("oauth_token", _tokenKey.Value),
                 new Parameter("oauth_signature_method", _signatureMethod),
-                new Parameter("oauth_timestamp", _timestamp)
+                new Parameter("oauth_timestamp", _timestamp),
+                new Parameter("oauth_nonce", _nonce)
             };
         }
     }
