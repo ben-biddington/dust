@@ -1,0 +1,84 @@
+The request parameters are collected, sorted and concatenated into a normalized string:
+
+* Parameters in the OAuth HTTP Authorization header excluding the realm parameter.
+* Parameters in the HTTP POST request body (with a content-type of application/x-www-form-urlencoded).
+* HTTP GET parameters added to the URLs in the query part (as defined by [RFC3986] section 3).
+
+The oauth_signature parameter MUST be excluded.
+
+The parameters are normalized into a single string as follows:
+
+Parameters are sorted by name, using lexicographical byte value ordering. If two or more parameters share the same name, they are sorted by their value. 
+
+For example:
+
+!|Given the request elements                            |
+|url                                                    |
+|http://abc/path/?a=1&c=hi%20there&f=25&f=50&f=a&z=p&z=t|
+
+!|Then the base string matches|a=1&c=hi%20there&f=25&f=50&f=a&oauth_consumer_key=&oauth_nonce=&oauth_signature_method=&oauth_timestamp=&oauth_token=&oauth_version=1.0&z=p&z=t|
+
+!3 Any request parameters are normalized
+See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
+
+!4 Parameters are present sorted by key
+!|Given the request elements |
+|url                         |
+|http://abc/path/?c=3&b=2&a=1|
+
+!|Then the base string matches|a=1&b=2&c=3|
+
+!4 Parameter values are percent encoded
+!|Given the request elements               |
+|url                                       |
+|http://abc/path/?c=value%203&b=value 2&a=1|
+
+!|Then the base string matches|a=1&b=value%202&c=value%203|
+
+!4 Parameters are included when they have no value
+!|Given the request elements|
+|url                        |
+|http://abc/path/?a=1&b=&c=3|
+
+!|Then the base string matches|a=1&b=&c=3|
+
+!4 If two or more parameters share the same name, they are sorted by their value
+
+!|Given the request elements             |
+|url                                     |
+|http://abc/path/?a=2&a=1&b=3&c=z&c=y&c=x|
+
+!|Then the base string matches|a=1&a=2&b=3&c=x&c=y&c=z|
+
+!4 It includes parameters in the [[OAuth HTTP Authorization header][http://oauth.net/core/1.0/#auth_header_authorization]] excluding the realm parameter
+
+!|Given the request elements|
+|url                        |
+|http://abc/path/?phil=berk |
+
+!|And oauth options                                                                       |
+|consumer key     |token        |signature method|timestamp|nonce                         |
+|xxx_bang_bang_xxx|xxx_token_xxx|HMAC-SHA1       |133731200|4572616e48616d6d65724c61686176|
+
+!|Then the base string matches|oauth_consumer_key=xxx_bang_bang_xxx&oauth_nonce=4572616e48616d6d65724c61686176&oauth_signature_method=HMAC-SHA1&oauth_timestamp=133731200&oauth_token=xxx_token_xxx&oauth_version=1.0|
+
+!|And it does not contain|oauth_signature=|
+
+!|And it does not contain|realm|
+
+!3 [FAILS] Parameters are sorted using lexicographical byte value ordering
+Checking what happens when you have two parameters with the name that differs by '''case only'''. Turns out '''HttpUtility.ParseQueryString''' collects parameters ignoring case, so the first one wins.
+
+!|Given the request elements|
+|url                        |
+|http://abc/path/?A=2&a=1   |
+This shows that the result has used the uppercase version:
+
+!|Then the base string matches|A=1&A=2|
+
+!|Given the request elements|
+|url                        |
+|http://abc/path/?a=2&A=1   |
+This shows that the result has now used the '''lower'''case version:
+
+!|Then the base string matches|a=1&a=2|
