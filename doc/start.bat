@@ -1,1 +1,1 @@
-java -jar fitnesse.jar -p 8080
+java -jar fitnesse.jar -p 9999
