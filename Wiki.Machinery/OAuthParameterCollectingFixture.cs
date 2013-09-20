@@ -6,11 +6,11 @@ namespace Wiki.Machinery
 {
     public class OAuthParameterCollectingFixture : RowEntryFixture
     {
-        public string ConsumerKey,Token;
+        public string ConsumerKey,Token,SignatureMethod;
 
         public override void Reset()
         {
-            ConsumerKey = null;
+            ConsumerKey = Token = SignatureMethod = null;
         }
 
         public override void EnterRow()
@@ -22,7 +22,11 @@ namespace Wiki.Machinery
         {
             if (Added != null)
             {
-                Added(new OAuthParameters(new ConsumerKey(ConsumerKey), new TokenKey(Token)));
+                Added(new OAuthParameters(
+                    new ConsumerKey(ConsumerKey), 
+                    new TokenKey(Token), 
+                    SignatureMethod
+                ));
             }
         }
 

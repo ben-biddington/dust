@@ -49,12 +49,12 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 |url                        |
 |http://abc/path/?phil=berk |
 
-!|And oauth options             |
-|consumer key     |token        |
-|xxx_bang_bang_xxx|xxx_token_xxx|
+!|And oauth options                              |
+|consumer key     |token        |signature method|
+|xxx_bang_bang_xxx|xxx_token_xxx|HMAC-SHA1       |
 
-!|Then the base string matches|oauth_consumer_key=xxx_bang_bang_xxx&oauth_token=xxx_token_xxx&oauth_version=1.0|
+!|Then the base string matches|oauth_consumer_key=xxx_bang_bang_xxx&oauth_signature_method=HMAC-SHA1&oauth_token=xxx_token_xxx&oauth_version=1.0|
 
-!|And it does not contain|oauth_signature|
+!|And it does not contain|oauth_signature=|
 
 !|And it does not contain|realm|
