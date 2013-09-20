@@ -17,7 +17,7 @@ namespace Dust.Core.SignatureBaseStringParts
 
             var keys = _values.AllKeys;
 
-            var parameters = keys.SelectMany(Map);
+            IEnumerable<Parameter> parameters = keys.SelectMany<string,Parameter>(Map);
 
             Parameters = new Parameters(parameters.ToArray());
         }
