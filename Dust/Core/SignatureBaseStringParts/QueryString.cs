@@ -15,18 +15,20 @@ namespace Dust.Core.SignatureBaseStringParts
         {
             _values = HttpUtility.ParseQueryString(request.Url.Query);
 
-            var keys = _values.AllKeys;
-
-            IEnumerable<Parameter> parameters = keys.SelectMany<string,Parameter>(Map);
-
-            Parameters = new Parameters(parameters.ToArray());
+        	Parameters = new Parameters(MapAll());
         }
 
-        private IEnumerable<Parameter> Map(string key)
+    	private Parameter[] MapAll() {
+    		return _values.AllKeys.SelectMany<string,Parameter>(Map).ToArray();
+    	}
+
+    	private IEnumerable<Parameter> Map(string key)
         {
-            var value = _values[key];
-
-            return value.Split(',').Select(v => new Parameter(key, v));
+    		return ValueFor(key).Split(',').Select(v => new Parameter(key, v));
         }
+
+    	private string ValueFor(string key) {
+    		return _values[key];
+    	}
     }
 }
