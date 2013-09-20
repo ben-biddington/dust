@@ -9,4 +9,19 @@ namespace Dust.Core.SignatureBaseStringParts
             Value = value;
         }
     }
+
+    public class TokenKey
+    {
+        private readonly string _value;
+
+        public TokenKey(string value)
+        {
+            _value = value;
+        }
+
+        public string Value
+        {
+            get { return _value; }
+        }
+    }
 }

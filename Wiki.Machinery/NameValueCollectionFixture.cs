@@ -6,7 +6,7 @@ namespace Wiki.Machinery
 {
     public class NameValueCollectionFixture : RowEntryFixture
     {
-        public string ConsumerKey;
+        public string ConsumerKey,Token;
 
         public override void Reset()
         {
@@ -22,7 +22,7 @@ namespace Wiki.Machinery
         {
             if (Added != null)
             {
-                Added(new OAuthParameters(new ConsumerKey(ConsumerKey)));
+                Added(new OAuthParameters(new ConsumerKey(ConsumerKey), new TokenKey(Token)));
             }
         }
 
