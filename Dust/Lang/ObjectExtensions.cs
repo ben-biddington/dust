@@ -2,9 +2,9 @@
 
 namespace Dust.Lang
 {
-    internal static class ObjectExtensions
+    public static class ObjectExtensions
     {
-        internal static T Tap<T>(this T self, Action<T> block)
+        public static T Tap<T>(this T self, Action<T> block)
         {
             block(self);
 

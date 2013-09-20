@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dust.Core
+namespace Dust.Core.SignatureBaseStringParts
 {
     internal class ParameterComparison : IComparer<Parameter>
     {

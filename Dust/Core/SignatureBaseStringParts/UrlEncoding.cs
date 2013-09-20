@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dust.Core
+namespace Dust.Core.SignatureBaseStringParts
 {
     internal class UrlEncoding
     {

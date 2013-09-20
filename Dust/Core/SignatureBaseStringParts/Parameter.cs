@@ -1,4 +1,4 @@
-﻿namespace Dust.Core
+﻿namespace Dust.Core.SignatureBaseStringParts
 {
     internal struct Parameter
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dust.Lang;
 
-namespace Dust.Core
+namespace Dust.Core.SignatureBaseStringParts
 {
     internal class Parameters
     {

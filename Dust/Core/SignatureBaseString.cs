@@ -1,4 +1,5 @@
 ﻿using System;
+using Dust.Core.SignatureBaseStringParts;
 
 namespace Dust.Core {
 	public class Request {
@@ -8,19 +9,22 @@ namespace Dust.Core {
 
 	public class SignatureBaseString {
 		private readonly Request _request;
+	    private readonly OAuthParameters _oAuthParameters;
 
-		public SignatureBaseString(Request request) {
-			_request = request;
+	    public SignatureBaseString(Request request, OAuthParameters oAuthParameters)
+		{
+		    _request = request;
+		    _oAuthParameters = oAuthParameters;
 		}
 
-		public string Value {
+	    public string Value {
 			get {
 				return RequestMethod + RequestUrl + Parameters;
 			}
 		}
 
 		protected string Parameters {
-			get { return new ParameterPart(_request).Value; }
+			get { return new ParameterPart(_request, _oAuthParameters).Value; }
 		}
 
 		protected string RequestMethod {

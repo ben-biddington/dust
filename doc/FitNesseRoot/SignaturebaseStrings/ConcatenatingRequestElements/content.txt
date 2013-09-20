@@ -22,31 +22,35 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 !|Then the base string matches|a=1&b=2&c=3|
 
 !4 Parameter values are percent encoded
-!|Given the request elements |
-|url                         |
+!|Given the request elements               |
+|url                                       |
 |http://abc/path/?c=value%203&b=value 2&a=1|
 
 !|Then the base string matches|a=1&b=value%202&c=value%203|
 
 !4 Parameters are included when they have no value
-!|Given the request elements |
-|url                         |
+!|Given the request elements|
+|url                        |
 |http://abc/path/?a=1&b=&c=3|
 
 !|Then the base string matches|a=1&b=&c=3|
 
 !4 If two or more parameters share the same name, they are sorted by their value
 
-!|Given the request elements |
-|url                         |
+!|Given the request elements             |
+|url                                     |
 |http://abc/path/?a=2&a=1&b=3&c=z&c=y&c=x|
 
 !|Then the base string matches|a=1&a=2&b=3&c=x&c=y&c=z|
 
 !4 It includes parameters in the [[OAuth HTTP Authorization header][http://oauth.net/core/1.0/#auth_header_authorization]] excluding the realm parameter
 
-!|Given the request elements |
-|url                         |
-|http://abc/path/?phil=berk|
+!|Given the request elements|
+|url                        |
+|http://abc/path/?phil=berk |
 
-!|Then the base string matches|oauth_version=1.0|
+!|And oauth options            |
+|consumer key|
+|xxx_bang_bang_xxx|
+
+!|Then the base string matches|oauth_consumer_key=xxx_bang_bang_xxx&oauth_version=1.0|
