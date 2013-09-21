@@ -1,4 +1,4 @@
-|OauthDust.SigningRequests.HmacSha1||21:47:23 Sat, Sep 21, 2013|
+|OauthDust.SigningRequests.HmacSha1||22:03:12 Sat, Sep 21, 2013|
 |OauthDust||21:13:19 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.SignaturebaseStrings||21:13:10 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.HmacSha1.SetUp||21:12:47 Sat, Sep 21, 2013|

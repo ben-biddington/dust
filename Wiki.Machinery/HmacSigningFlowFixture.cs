@@ -33,11 +33,19 @@ namespace Wiki.Machinery {
 
 	internal class Consumer {
 		public string Sign(string signatureBaseString, string consumerSecret, string tokenSecret) {
-			var key = string.Format("{0}&{1}", consumerSecret, tokenSecret);
+			string key = Key(consumerSecret, tokenSecret);
 
 			var signature = SignCore(signatureBaseString, key);
 
 			return Base64Encode(signature);
+		}
+
+		private string Key(string consumerSecret, string tokenSecret) {
+			return string.Format("{0}&{1}", Escape(consumerSecret), Escape(tokenSecret));
+		}
+
+		private string Escape(string what) {
+			return Uri.EscapeDataString(what);
 		}
 
 		private string Base64Encode(byte[] bytes) {

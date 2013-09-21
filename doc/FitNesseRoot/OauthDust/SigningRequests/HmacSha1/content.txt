@@ -1,8 +1,9 @@
-The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [[RFC2104][http://oauth.net/core/1.0/#RFC2104]] where the Signature Base String is the text and the key is the concatenated values (each first encoded per Parameter Encoding) of the Consumer Secret and Token Secret, separated by an ‘&’ character (ASCII code 38) even if empty.
+The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [[RFC2104][http://oauth.net/core/1.0/#RFC2104]] where the Signature Base String is the text and the key is the concatenated values (each first encoded per [[Parameter Encoding][http://oauth.net/core/1.0/#encoding_parameters]]) of the Consumer Secret and Token Secret, separated by an ‘&’ character (ASCII code 38) even if empty.
 
 oauth_signature is set to the calculated digest octet string, first base64-encoded per [RFC2045] section 6.8, then URL-encoded per Parameter Encoding.
 
-!3 An example of just consumer signing
+!3 Can sign with just consumer
+For example when issuing request tokens.
 
 !|Given the signature base string|GET&http%3A%2F%2Fabc&oauth_consumer_key%3Dkey%26oauth_nonce%3D97d3433a8fcd553e89891d14dcb58433%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1379754347%26oauth_version%3D1.0|
 
@@ -11,3 +12,24 @@ oauth_signature is set to the calculated digest octet string, first base64-encod
 !|And token secret|blank|
 
 !|Then the signature is|zft3pJftb9V60BJAlWhP+ljCEN4=|
+
+!3 Can also sign with both consumer and token secret
+
+!|Given the signature base string|GET&http%3A%2F%2Fabc&oauth_consumer_key%3Dkey%26oauth_nonce%3De44db3a22f095c7852a9b46b503cc1f5%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1379757268%26oauth_token%3Dtoken%26oauth_version%3D1.0|
+
+!|And consumer secret|secret|
+
+!|And token secret|token_secret|
+
+!|Then the signature is|+9DjPiWQZ0Lfr2pwG3TVWY/nbUo=|
+
+!3 Secrets are parameter encoded first
+Proves that the secrets are [[Parameter Encoded][http://oauth.net/core/1.0/#encoding_parameters]]) as part of the process.
+
+!|Given the signature base string|GET&http%3A%2F%2Fabc&oauth_consumer_key%3Dkey%26oauth_nonce%3De8d52c5f365ae678b313d8f4a85e3ebe%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1379757556%26oauth_token%3Dtoken%26oauth_version%3D1.0|
+
+!|And consumer secret|consumer secret|
+
+!|And token secret|token secret|
+
+!|Then the signature is|w+dTKvBVNd+Hzhc4AlrohcWQRXg=|
