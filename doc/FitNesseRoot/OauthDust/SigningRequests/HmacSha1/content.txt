@@ -1,0 +1,13 @@
+The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [[RFC2104][http://oauth.net/core/1.0/#RFC2104]] where the Signature Base String is the text and the key is the concatenated values (each first encoded per Parameter Encoding) of the Consumer Secret and Token Secret, separated by an ‘&’ character (ASCII code 38) even if empty.
+
+oauth_signature is set to the calculated digest octet string, first base64-encoded per [RFC2045] section 6.8, then URL-encoded per Parameter Encoding.
+
+!3 An example of just consumer signing
+
+!|Given the signature base string|GET&http%3A%2F%2Fabc&oauth_consumer_key%3Dkey%26oauth_nonce%3D97d3433a8fcd553e89891d14dcb58433%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1379754347%26oauth_version%3D1.0|
+
+!|And consumer secret|secret|
+
+!|And token secret|blank|
+
+!|Then the signature is|zft3pJftb9V60BJAlWhP+ljCEN4=|

@@ -3,11 +3,17 @@
 	<AddChild/>
 	<Edit/>
 	<Files/>
+	<Help></Help>
 	<Properties/>
 	<Prune/>
 	<RecentChanges/>
+	<Refactor/>
 	<Search/>
 	<Static/>
+	<Suites></Suites>
+	<SymbolicLinks>
+		<Example>OauthDust</Example>
+	</SymbolicLinks>
 	<Versions/>
 	<WhereUsed/>
 </properties>
