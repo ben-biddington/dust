@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Dust.Core.SignatureBaseStringParts;
 
 namespace Dust.Core {
 	public class Consumer {
@@ -17,7 +18,7 @@ namespace Dust.Core {
 		}
 
 		private string Escape(string what) {
-			return Uri.EscapeDataString(what);
+			return new UrlEncoding().Escape(what);
 		}
 
 		private string Base64Encode(byte[] bytes) {
