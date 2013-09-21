@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Consumer.cs" />
     <Compile Include="Core\SignatureBaseStringParts\ConsumerKey.cs" />
     <Compile Include="Core\SignatureBaseStringParts\EarlPart.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Name.cs" />
