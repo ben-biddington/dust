@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Dust.Core.SignatureBaseStringParts
+namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
-    internal class UrlEncoding
+    internal class ParameterEncoding
     {
         internal string Escape(string what)
         {

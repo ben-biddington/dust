@@ -1,4 +1,4 @@
-﻿namespace Dust.Core.SignatureBaseStringParts
+﻿namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     internal struct Parameter
     {
@@ -28,7 +28,7 @@
 
         private string Escape(string what)
         {
-            return new UrlEncoding().Escape(what);
+            return new ParameterEncoding().Escape(what);
         }
     }
 }

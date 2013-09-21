@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Dust.Lang;
 
-namespace Dust.Core.SignatureBaseStringParts
+namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     public class OAuthParameters
     {

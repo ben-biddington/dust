@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 
-namespace Dust.Core.SignatureBaseStringParts
+namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     internal class QueryString
     {

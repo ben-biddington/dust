@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using Dust.Core.SignatureBaseStringParts;
+using Dust.Core.SignatureBaseStringParts.Parameters;
 
-namespace Dust.Core {
+namespace Dust {
 	public class Consumer {
 		public string Sign(string signatureBaseString, string consumerSecret, string tokenSecret) {
 			string key = Key(consumerSecret, tokenSecret);
@@ -18,7 +18,7 @@ namespace Dust.Core {
 		}
 
 		private string Escape(string what) {
-			return new UrlEncoding().Escape(what);
+			return new ParameterEncoding().Escape(what);
 		}
 
 		private string Base64Encode(byte[] bytes) {

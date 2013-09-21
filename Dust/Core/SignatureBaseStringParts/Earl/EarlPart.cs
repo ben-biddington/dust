@@ -1,6 +1,7 @@
 ﻿using System;
+using Dust.Core.SignatureBaseStringParts.Parameters;
 
-namespace Dust.Core.SignatureBaseStringParts {
+namespace Dust.Core.SignatureBaseStringParts.Earl {
 	internal class EarlPart {
 		private readonly Uri _uri;
 
@@ -19,7 +20,7 @@ namespace Dust.Core.SignatureBaseStringParts {
 		}
 
 		private string Escape(string what) {
-			return new UrlEncoding().Escape(what);
+			return new ParameterEncoding().Escape(what);
 		}
 
 		private string Authority {

@@ -1,7 +1,6 @@
-﻿using System;
-using Dust.Lang;
+﻿using Dust.Lang;
 
-namespace Dust.Core.SignatureBaseStringParts {
+namespace Dust.Core.SignatureBaseStringParts.Parameters {
 	internal class ParameterPart {
 		private readonly OAuthParameters _oAuthParameters;
 		private readonly Request _request;
@@ -18,7 +17,7 @@ namespace Dust.Core.SignatureBaseStringParts {
 		}
 
 		private string Escape(string what) {
-			return new UrlEncoding().Escape(what);
+			return new ParameterEncoding().Escape(what);
 		}
 
 		private Parameters Parameters {

@@ -1,5 +1,8 @@
 ﻿using System;
+using Dust;
+using Dust.Core;
 using Dust.Core.SignatureBaseStringParts;
+using Dust.Core.SignatureBaseStringParts.Parameters;
 using fit.Fixtures;
 
 namespace Wiki.Machinery

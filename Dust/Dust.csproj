@@ -69,18 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Consumer.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\ConsumerKey.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\EarlPart.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Name.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\OAuthParameters.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameter.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\ParameterComparison.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\ParameterPart.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameters.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\QueryString.cs" />
+    <Compile Include="Consumer.cs" />
+    <Compile Include="ConsumerKey.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Earl\EarlPart.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\Name.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\OAuthParameters.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\Parameter.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterComparison.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterPart.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\Parameters.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\QueryString.cs" />
     <Compile Include="Core\SignatureBaseString.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\UrlEncoding.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterEncoding.cs" />
+    <Compile Include="TokenKey.cs" />
     <Compile Include="Lang\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

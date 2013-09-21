@@ -1,4 +1,4 @@
-namespace Dust.Core.SignatureBaseStringParts
+namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     class Name
     {
