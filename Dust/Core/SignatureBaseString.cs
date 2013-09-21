@@ -27,16 +27,16 @@ namespace Dust.Core {
 			get { return "&"; }
 		}
 
-		protected string Parameters {
-			get { return new ParameterPart(_request, _oAuthParameters).Value; }
-		}
-
 		protected string RequestMethod {
 			get { return _request.Verb.ToUpper(); }
 		}
 
 		private string RequestUrl {
 			get { return new EarlPart(_request.Url).Value; }
+		}
+
+		protected string Parameters {
+			get { return new ParameterPart(_request, _oAuthParameters).Value; }
 		}
 	}
 }
