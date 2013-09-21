@@ -2,24 +2,24 @@
 using Dust.Core.SignatureBaseStringParts;
 using Dust.Core.SignatureBaseStringParts.Earl;
 using Dust.Core.SignatureBaseStringParts.Parameters;
+using Dust.Core.SignatureBaseStringParts.Verb;
 
 namespace Dust.Core {
 	public class Request {
-		public Uri Url { get; set; }	
-		public string Verb { get; set; }	
+		public Uri Url { get; set; }
+		public string Verb { get; set; }
 	}
 
 	public class SignatureBaseString {
 		private readonly Request _request;
-	    private readonly OAuthParameters _oAuthParameters;
+		private readonly OAuthParameters _oAuthParameters;
 
-	    public SignatureBaseString(Request request, OAuthParameters oAuthParameters)
-		{
-		    _request = request;
-		    _oAuthParameters = oAuthParameters;
+		public SignatureBaseString(Request request, OAuthParameters oAuthParameters) {
+			_request = request;
+			_oAuthParameters = oAuthParameters;
 		}
 
-	    public string Value {
+		public string Value {
 			get {
 				return RequestMethod + Ampersand + RequestUrl + Ampersand + Parameters;
 			}
@@ -30,7 +30,7 @@ namespace Dust.Core {
 		}
 
 		protected string RequestMethod {
-			get { return _request.Verb.ToUpper(); }
+			get { return new VerbPart(_request).Value; }
 		}
 
 		private string RequestUrl {
