@@ -9,7 +9,17 @@ namespace Dust.Core.SignatureBaseStringParts {
 		}
 
 		internal string Value {
-			get { return string.Format("{0}://{1}{2}", _uri.Scheme, Authority, _uri.AbsolutePath); }
+			get {
+				return Escape(string.Format("{0}://{1}{2}", _uri.Scheme, Authority, Path()));
+			}
+		}
+
+		private string Path() {
+			return _uri.LocalPath.TrimEnd('/');
+		}
+
+		private string Escape(string what) {
+			return new UrlEncoding().Escape(what);
 		}
 
 		private string Authority {

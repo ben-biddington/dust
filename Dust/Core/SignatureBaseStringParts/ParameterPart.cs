@@ -1,39 +1,36 @@
-﻿using Dust.Lang;
+﻿using System;
+using Dust.Lang;
 
-namespace Dust.Core.SignatureBaseStringParts
-{
-    internal class ParameterPart
-    {
-        private readonly OAuthParameters _oAuthParameters;
-        private readonly Request _request;
+namespace Dust.Core.SignatureBaseStringParts {
+	internal class ParameterPart {
+		private readonly OAuthParameters _oAuthParameters;
+		private readonly Request _request;
 
-        internal ParameterPart(Request request, OAuthParameters oAuthParameters)
-        {
-            _request = request;
-            _oAuthParameters = oAuthParameters;
-        }
+		internal ParameterPart(Request request, OAuthParameters oAuthParameters) {
+			_request = request;
+			_oAuthParameters = oAuthParameters;
+		}
 
-        internal string Value
-        {
-            get
-            {
-                return Parameters.ToString();
-            }
-        }
+		internal string Value {
+			get {
+				return Escape(Parameters.ToString());
+			}
+		}
 
-        private Parameters Parameters
-        {
-            get
-            {
-                return new QueryString(_request).Parameters.Tap(it => it.Add(OAuthParameters));
-            }
-        }
+		private string Escape(string what) {
+			return new UrlEncoding().Escape(what);
+		}
 
-        private Parameter[] OAuthParameters {
-            get
-            {
-                return _oAuthParameters.List().ToArray();
-            }
-        }
-    }
+		private Parameters Parameters {
+			get {
+				return new QueryString(_request).Parameters.Tap(it => it.Add(OAuthParameters));
+			}
+		}
+
+		private Parameter[] OAuthParameters {
+			get {
+				return _oAuthParameters.List().ToArray();
+			}
+		}
+	}
 }

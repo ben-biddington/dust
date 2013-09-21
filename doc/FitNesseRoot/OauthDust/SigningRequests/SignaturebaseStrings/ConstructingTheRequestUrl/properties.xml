@@ -2,6 +2,7 @@
 <properties>
 	<Edit>true</Edit>
 	<Files>true</Files>
+	<Help>How the earl part of the signature base string is constructed</Help>
 	<Properties>true</Properties>
 	<RecentChanges>true</RecentChanges>
 	<Refactor>true</Refactor>

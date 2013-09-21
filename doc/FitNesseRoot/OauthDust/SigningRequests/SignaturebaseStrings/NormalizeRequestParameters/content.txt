@@ -66,6 +66,18 @@ See [[section 9.1.1][http://oauth.net/core/1.0/#sig_norm_param]]
 
 !|And it does not contain|realm|
 
+!4 It omits access token when it is not supplied
+
+!|Given the request elements|
+|url                        |
+|http://abc/path/?phil=berk |
+
+!|And oauth options                                                                       |
+|consumer key     |token        |signature method|timestamp|nonce                         |
+|xxx_bang_bang_xxx|null|HMAC-SHA1       |133731200|4572616e48616d6d65724c61686176|
+
+!|Then it does not contain|oauth_access_token=|
+
 !3 [FAILS] Parameters are sorted using lexicographical byte value ordering
 Checking what happens when you have two parameters with the name that differs by '''case only'''. Turns out '''HttpUtility.ParseQueryString''' collects parameters ignoring case, so the first one wins.
 

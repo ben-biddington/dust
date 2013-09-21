@@ -32,14 +32,24 @@ namespace Wiki.Machinery {
         }
 
 		public Fixture Then_the_base_string_matches(string what) {
-			return new YesNoFixture(BaseString.Matches(what), "Expected [" + BaseString.Value + "] to match pattern [" +  what + "]", 2);
+			return new YesNoFixture(BaseString.Matches(Uri.EscapeDataString(what)), "Expected [" + BaseString.Value + "] to match pattern [" +  what + "]", 2);
+		}
+
+		public Fixture Then_the_base_string_equals(string what) {
+			return new YesNoFixture(BaseString.Value == what, 
+				"Expected [" + BaseString.Value + "] to equal [" +  what + "]", 2
+			);
 		}
 
 		public Fixture Then_the_base_string_contains(string what) {
             return new YesNoFixture(BaseString.Contains(what), "Expected [" + BaseString.Value + "] to contain [" + what + "]", 2);
 		}
 
-        public Fixture And_it_does_not_contain(string what)
+        public Fixture And_it_does_not_contain(string what) {
+        	return Then_it_does_not_contain(what);
+        }
+
+		public Fixture Then_it_does_not_contain(string what)
         {
             return new YesNoFixture(BaseString.Omits(what), "Expected [" + BaseString.Value + "] NOT to contain [" + what + "]", 2);
         }

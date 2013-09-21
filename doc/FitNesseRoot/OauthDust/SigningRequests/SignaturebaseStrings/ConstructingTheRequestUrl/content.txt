@@ -5,7 +5,7 @@
 |url              |
 |http://abc       |
 
-!|Then the base string contains|http://abc|
+!|Then the base string contains|http%3A%2F%2Fabc|
 
 !3 The scheme and authority must be lower-cased and query is not included
 
@@ -13,7 +13,7 @@
 |url                                  |
 |HTTP://Example.com:80/resource?id=123|
 
-!|Then the base string contains|http://example.com/resource|
+!|Then the base string contains|http%3A%2F%2Fexample.com%2Fresource|
 
 !3 Ports 80 and 443 are omitted, anything else is included
 
@@ -23,7 +23,7 @@ Port 80:
 |url                           |
 |http://example.com:80/resource|
 
-!|Then the base string contains|http://example.com/resource|
+!|Then the base string contains|http%3A%2F%2Fexample.com%2Fresource|
 
 Port 443:
 This also shows that the '''https''' schema is also used.
@@ -32,7 +32,7 @@ This also shows that the '''https''' schema is also used.
 |url                             |
 |https://example.com:443/resource|
 
-!|Then the base string contains|https://example.com/resource|
+!|Then the base string contains|https%3A%2F%2Fexample.com%2Fresource|
 
 Any other port, say '''1337'''
 
@@ -40,4 +40,4 @@ Any other port, say '''1337'''
 |url                             |
 |HTTP://Example.com:1337/resource|
 
-!|Then the base string contains|http://example.com:1337/resource|
+!|Then the base string contains|http%3A%2F%2Fexample.com%3A1337%2Fresource|

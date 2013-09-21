@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts
 {
@@ -33,11 +34,14 @@ namespace Dust.Core.SignatureBaseStringParts
             {
                 new Parameter(Name.Version, "1.0"),
                 new Parameter(Name.ConsumerKey, _key.Value),
-                new Parameter(Name.Token, _tokenKey.Value),
                 new Parameter(Name.SignatureMethod, _signatureMethod),
                 new Parameter(Name.Timestamp, _timestamp),
                 new Parameter(Name.Nonce, _nonce)
-            };
+            }.Tap(it => {
+				if (_tokenKey.Exists) {
+					it.Add(new Parameter(Name.Token, _tokenKey.Value));
+				}
+			});
         }
     }
 }

@@ -1,10 +1,3 @@
-!*****> Default setup
-!define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,fit.dll %p}
-!define TEST_RUNNER {Runner.exe}
-!define PATH_SEPARATOR {;}
-!path ..\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll
-**********!
-
 [[The OAuth protocol][http://oauth.net/core/1.0]] enables websites or applications (Consumers) to access Protected Resources from a web service (Service Provider) via an API, without requiring Users to disclose their Service Provider credentials to the Consumers. More generally, OAuth creates a freely-implementable and generic methodology for API authentication.
 
 An example use case is allowing printing service printer.example.com (the Consumer), to access private photos stored on photos.example.net (the Service Provider) without requiring Users to provide their photos.example.net credentials to printer.example.com.
@@ -14,3 +7,9 @@ OAuth does not require a specific user interface or interaction pattern, nor doe
 OAuth aims to unify the experience and implementation of delegated web service authentication into a single, community-driven protocol. OAuth builds on existing protocols and best practices that have been independently implemented by various websites. An open standard, supported by large and small providers alike, promotes a consistent and trusted experience for both application developers and the users of those applications.
 
 !contents -R2 -g -p -f -h
+!*****> Default setup
+!define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,fit.dll %p}
+!define TEST_RUNNER {Runner.exe}
+!define PATH_SEPARATOR {;}
+!path ..\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll
+**********!

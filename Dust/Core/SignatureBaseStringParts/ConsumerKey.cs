@@ -23,5 +23,9 @@ namespace Dust.Core.SignatureBaseStringParts
         {
             get { return _value; }
         }
+
+    	public bool Exists {
+    		get { return Value != null; }
+    	}
     }
 }

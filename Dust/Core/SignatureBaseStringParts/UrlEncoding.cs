@@ -6,7 +6,7 @@ namespace Dust.Core.SignatureBaseStringParts
     {
         internal string Escape(string what)
         {
-            return Uri.EscapeDataString(what);
+            return Uri.EscapeDataString(what ?? "");
         }
     }
 }

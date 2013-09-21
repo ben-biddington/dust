@@ -19,8 +19,12 @@ namespace Dust.Core {
 
 	    public string Value {
 			get {
-				return RequestMethod + RequestUrl + Parameters;
+				return RequestMethod + Ampersand + RequestUrl + Ampersand + Parameters;
 			}
+		}
+
+		protected string Ampersand {
+			get { return "&"; }
 		}
 
 		protected string Parameters {
