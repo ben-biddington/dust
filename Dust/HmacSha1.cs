@@ -4,7 +4,7 @@ using System.Text;
 using Dust.Core.SignatureBaseStringParts.Parameters;
 
 namespace Dust {
-	public class Consumer {
+	public class HmacSha1 {
 		public string Sign(string signatureBaseString, string consumerSecret, string tokenSecret) {
 			string key = Key(consumerSecret, tokenSecret);
 

@@ -22,7 +22,7 @@ namespace Wiki.Machinery {
 		}
 
 		public Fixture Then_the_signature_is(string expected) {
-			string actual = new Consumer().Sign(_signatureBaseString, _consumerSecret, _tokenSecret);
+			string actual = new HmacSha1().Sign(_signatureBaseString, _consumerSecret, _tokenSecret);
 
 			return new YesNoFixture(expected == actual, 
 				"Invalid signature. Expected [" +  expected + "]. Got [" + actual + "].", 2

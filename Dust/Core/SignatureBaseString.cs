@@ -1,5 +1,4 @@
 ﻿using System;
-using Dust.Core.SignatureBaseStringParts;
 using Dust.Core.SignatureBaseStringParts.Earl;
 using Dust.Core.SignatureBaseStringParts.Parameters;
 using Dust.Core.SignatureBaseStringParts.Verb;

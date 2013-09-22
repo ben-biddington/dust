@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consumer.cs" />
+    <Compile Include="HmacSha1.cs" />
     <Compile Include="ConsumerKey.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Earl\EarlPart.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Name.cs" />
