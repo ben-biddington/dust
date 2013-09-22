@@ -1,0 +1,26 @@
+The OAuth Protocol Parameters are sent in the Authorization header the following way:
+
+ 1 Parameter names and values are encoded per Parameter Encoding.
+ 2 For each parameter, the name is immediately followed by an ‘=’ character (ASCII code 61), a ‘”’ character (ASCII code 34), the parameter value (MAY be empty), and another ‘”’ character (ASCII code 34).
+ 3 Parameters are separated by a comma character (ASCII code 44) and OPTIONAL linear whitespace per [RFC2617].
+ 4 The OPTIONAL realm parameter is added and interpreted per [RFC2617], section 1.2.
+
+For example:
+{{{
+Authorization: OAuth realm="http://sp.example.com/",
+                oauth_consumer_key="0685bd9184jfhq22",
+                oauth_token="ad180jjd733klru7",
+                oauth_signature_method="HMAC-SHA1",
+                oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D",
+                oauth_timestamp="137131200",
+                oauth_nonce="4572616e48616d6d65724c61686176",
+                oauth_version="1.0"
+}}}
+
+!3 An example
+
+!|Given the oauth options                                                                                                        |
+|consumer key    |token           |signature method|signature                   |timestamp|nonce                         |version|
+|0685bd9184jfhq22|ad180jjd733klru7|HMAC-SHA1       |wOJIO9A2W5mFwDgiDvZbTSMK/PY=|137131200|4572616e48616d6d65724c61686176|1.0    |
+
+!|Then it matches|OAuth|

@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationHeaderFlowFixture.cs" />
     <Compile Include="HmacSigningFlowFixture.cs" />
     <Compile Include="OAuthParameterCollectingFixture.cs" />
     <Compile Include="RequestElementCollectionFixture.cs" />

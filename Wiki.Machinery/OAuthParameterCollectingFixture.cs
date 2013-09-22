@@ -1,7 +1,5 @@
 ﻿using System;
 using Dust;
-using Dust.Core;
-using Dust.Core.SignatureBaseStringParts;
 using Dust.Core.SignatureBaseStringParts.Parameters;
 using fit.Fixtures;
 
@@ -9,11 +7,11 @@ namespace Wiki.Machinery
 {
     public class OAuthParameterCollectingFixture : RowEntryFixture
     {
-        public string ConsumerKey,Token,SignatureMethod,Timestamp,Nonce;
+        public string ConsumerKey,Token,SignatureMethod,Timestamp,Nonce,Signature,Version;
 
         public override void Reset()
         {
-            ConsumerKey = Token = SignatureMethod = Timestamp = Nonce = null;
+            ConsumerKey = Token = SignatureMethod = Timestamp = Nonce = Signature = Version = null;
         }
 
         public override void EnterRow()
@@ -30,7 +28,9 @@ namespace Wiki.Machinery
                     new TokenKey(Token), 
                     SignatureMethod, 
                     Timestamp, 
-                    Nonce
+                    Nonce, 
+					Signature, 
+					Version
                 ));
             }
         }
