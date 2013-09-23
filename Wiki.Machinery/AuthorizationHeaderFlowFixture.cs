@@ -19,9 +19,9 @@ namespace Wiki.Machinery {
             );
 		}
 
-		public Fixture Then_it_matches(string what) {
-			string result = new AuthorizationHeader().Value;
-			return new YesNoFixture(result.StartsWith(what), result, 2);
+		public Fixture Then_it_equals(string what) {
+			string result = new AuthorizationHeader(_oauthParameters).Value;
+			return new YesNoFixture(result.Equals(what), "Expected [" +  what + "]. Got [" + result + "]", 2);
 		}
 	}
 }

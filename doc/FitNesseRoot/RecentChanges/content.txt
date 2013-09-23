@@ -1,5 +1,5 @@
+|OauthDust.AndParameters.OauthHttpAuthorizationScheme.AuthorizationHeader||19:56:16 Mon, Sep 23, 2013|
 |OauthDust.SigningRequests.HmacSha1||19:51:39 Mon, Sep 23, 2013|
-|OauthDust.AndParameters.OauthHttpAuthorizationScheme.AuthorizationHeader||16:24:59 Sun, Sep 22, 2013|
 |OauthDust.AndParameters.OauthHttpAuthorizationScheme.AuthorizationHeader.SetUp||16:21:32 Sun, Sep 22, 2013|
 |OauthDust.AndParameters.OauthHttpAuthorizationScheme||16:08:32 Sun, Sep 22, 2013|
 |OauthDust.AndParameters||16:07:02 Sun, Sep 22, 2013|

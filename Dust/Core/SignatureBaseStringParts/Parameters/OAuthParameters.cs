@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
@@ -46,8 +47,8 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         {
             return new List<Parameter>
             {
-                new Parameter(Name.Version, "1.0"),
-                new Parameter(Name.ConsumerKey, _key.Value),
+            	new Parameter(Name.ConsumerKey, _key.Value), 
+				new Parameter(Name.Version, "1.0"),
                 new Parameter(Name.SignatureMethod, _signatureMethod),
                 new Parameter(Name.Timestamp, _timestamp),
                 new Parameter(Name.Nonce, _nonce)
@@ -55,7 +56,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 				if (_tokenKey.Exists) {
 					it.Add(new Parameter(Name.Token, _tokenKey.Value));
 				}
-			});
+			}).Tap(it => it.Sort(new ParameterComparison()));
         }
     }
 }
