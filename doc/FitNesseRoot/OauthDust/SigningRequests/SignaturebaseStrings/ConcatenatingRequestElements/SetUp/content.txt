@@ -1,1 +1,1 @@
-!|Wiki.Machinery.SignatureBaseStringFlowFixture|
+!|Wiki.Machinery.SignatureBaseStrings.SignatureBaseStringFlowFixture|

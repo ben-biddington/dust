@@ -1,9 +1,9 @@
 ﻿using Dust;
-using Dust.Core;
 using fit;
 using fitlibrary;
+using Wiki.Machinery.Support;
 
-namespace Wiki.Machinery {
+namespace Wiki.Machinery.Signing {
 	public class HmacSigningFlowFixture : DoFixture {
 		private string _signatureBaseString;
 		private string _consumerSecret;

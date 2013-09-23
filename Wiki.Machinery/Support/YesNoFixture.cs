@@ -1,6 +1,6 @@
 ﻿using fit;
 
-namespace Wiki.Machinery
+namespace Wiki.Machinery.Support
 {
     public class YesNoFixture : Fixture
     {

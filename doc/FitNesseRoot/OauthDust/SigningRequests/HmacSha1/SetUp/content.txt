@@ -1,1 +1,1 @@
-!|Wiki.Machinery.HmacSigningFlowFixture|
+!|Wiki.Machinery.Signing.HmacSigningFlowFixture|

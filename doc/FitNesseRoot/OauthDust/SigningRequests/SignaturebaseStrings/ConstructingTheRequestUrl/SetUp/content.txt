@@ -1,4 +1,4 @@
 !|Import|
-|Wiki.Machinery.SignatureBaseStringFlowFixture |
+|Wiki.Machinery.SignatureBaseStrings.SignatureBaseStringFlowFixture |
 
-!|Wiki.Machinery.SignatureBaseStringFlowFixture |
+!|Wiki.Machinery.SignatureBaseStrings.SignatureBaseStringFlowFixture |

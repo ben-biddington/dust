@@ -4,8 +4,9 @@ using Dust.Core.SignatureBaseStringParts.Parameters;
 using Dust.Lang;
 using fit;
 using fitlibrary;
+using Wiki.Machinery.Support;
 
-namespace Wiki.Machinery {
+namespace Wiki.Machinery.SignatureBaseStrings {
 	public class SignatureBaseStringFlowFixture : DoFixture {
 		private RequestElementCollectionFixture _parts;
 	    private OAuthParameters _oauthParameters = OAuthParameters.Empty;

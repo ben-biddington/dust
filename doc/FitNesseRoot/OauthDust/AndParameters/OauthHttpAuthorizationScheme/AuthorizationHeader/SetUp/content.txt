@@ -1,1 +1,1 @@
-!|Wiki.Machinery.AuthorizationHeaderFlowFixture|
+!|Wiki.Machinery.Http.AuthorizationHeaderFlowFixture|

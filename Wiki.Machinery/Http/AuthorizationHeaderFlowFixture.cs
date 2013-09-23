@@ -3,8 +3,9 @@ using Dust.Http;
 using Dust.Lang;
 using fit;
 using fitlibrary;
+using Wiki.Machinery.Support;
 
-namespace Wiki.Machinery {
+namespace Wiki.Machinery.Http {
 	public class AuthorizationHeaderFlowFixture : DoFixture {
 		private OAuthParameters _oauthParameters;
 		private string _realm;

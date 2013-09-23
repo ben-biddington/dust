@@ -74,14 +74,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorizationHeaderFlowFixture.cs" />
-    <Compile Include="HmacSigningFlowFixture.cs" />
+    <Compile Include="Http\AuthorizationHeaderExtensions.cs" />
+    <Compile Include="Http\AuthorizationHeaderFlowFixture.cs" />
+    <Compile Include="Signing\HmacSigningFlowFixture.cs" />
     <Compile Include="OAuthParameterCollectingFixture.cs" />
-    <Compile Include="RequestElementCollectionFixture.cs" />
-    <Compile Include="SignatureBaseStringExtensions.cs" />
-    <Compile Include="SignatureBaseStringFlowFixture.cs" />
+    <Compile Include="SignatureBaseStrings\RequestElementCollectionFixture.cs" />
+    <Compile Include="SignatureBaseStrings\SignatureBaseStringExtensions.cs" />
+    <Compile Include="SignatureBaseStrings\SignatureBaseStringFlowFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YesNoFixture.cs" />
+    <Compile Include="Support\YesNoFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dust\Dust.csproj">
