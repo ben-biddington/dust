@@ -43,11 +43,11 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 			string.Empty
         );
 
-        internal List<Parameter> List()
+    	internal List<Parameter> List()
         {
             return new List<Parameter>
             {
-            	new Parameter(Name.ConsumerKey, _key.Value), 
+            	ConsumerKey, 
 				new Parameter(Name.Version, "1.0"),
                 new Parameter(Name.SignatureMethod, _signatureMethod),
                 new Parameter(Name.Timestamp, _timestamp),
@@ -58,5 +58,9 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 				}
 			}).Tap(it => it.Sort(new ParameterComparison()));
         }
+
+    	internal Parameter ConsumerKey {
+    		get { return new Parameter(Name.ConsumerKey, _key.Value); }
+    	}
     }
 }

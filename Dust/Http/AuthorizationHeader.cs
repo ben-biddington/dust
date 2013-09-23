@@ -1,4 +1,5 @@
-﻿using Dust.Core.SignatureBaseStringParts.Parameters;
+﻿using System;
+using Dust.Core.SignatureBaseStringParts.Parameters;
 
 namespace Dust.Http {
 	public class AuthorizationHeader {
@@ -16,13 +17,19 @@ namespace Dust.Http {
 			get {
 				return 
 					"realm=\"http://sp.example.com/\", " +
-					"oauth_consumer_key=\"0685bd9184jfhq22\", " +
+					"" + ConsumerKey + ", " +
 					"oauth_token=\"ad180jjd733klru7\", " +
 					"oauth_signature_method=\"HMAC-SHA1\", " +
 					"oauth_signature=\"wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D\", " +
 					"oauth_timestamp=\"137131200\", " +
 					"oauth_nonce=\"4572616e48616d6d65724c61686176\", " +
 					"oauth_version=\"1.0\"";
+			}
+		}
+
+		protected string ConsumerKey {
+			get {
+				return string.Format("{0}=\"{1}\"", _oAuthParameters.ConsumerKey.Name, _oAuthParameters.ConsumerKey.Value);
 			}
 		}
 
