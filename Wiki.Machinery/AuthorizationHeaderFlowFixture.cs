@@ -23,5 +23,10 @@ namespace Wiki.Machinery {
 			string result = new AuthorizationHeader(_oauthParameters, _realm).Value;
 			return new YesNoFixture(result.Equals(what), "Expected [" +  what + "]. Got [" + result + "]", 2);
 		}
+
+		public Fixture Then_it_matches(string what) {
+			var result = new AuthorizationHeader(_oauthParameters, _realm);
+			return new YesNoFixture(result.Matches(what), "Expected [" +  what + "]. Got [" + result + "]", 2);
+		}
 	}
 }
