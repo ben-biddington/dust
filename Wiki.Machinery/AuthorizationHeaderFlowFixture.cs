@@ -1,5 +1,5 @@
-﻿using System;
-using Dust.Core.SignatureBaseStringParts.Parameters;
+﻿using Dust.Core.SignatureBaseStringParts.Parameters;
+using Dust.Http;
 using Dust.Lang;
 using fit;
 using fitlibrary;
@@ -22,12 +22,6 @@ namespace Wiki.Machinery {
 		public Fixture Then_it_matches(string what) {
 			string result = new AuthorizationHeader().Value;
 			return new YesNoFixture(result.StartsWith(what), result, 2);
-		}
-	}
-
-	public class AuthorizationHeader {
-		public string Value {
-			get { return "OAuth "; }
 		}
 	}
 }
