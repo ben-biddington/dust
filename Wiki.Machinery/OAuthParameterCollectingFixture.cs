@@ -28,7 +28,7 @@ namespace Wiki.Machinery
                     new TokenKey(Token), 
                     SignatureMethod, 
                     Timestamp, 
-                    Nonce, 
+                    new DummyNonceSequence(Nonce), 
 					Signature, 
 					Version
                 ));
@@ -37,4 +37,16 @@ namespace Wiki.Machinery
 
         public event Action<OAuthParameters> Added;
     }
+
+	internal class DummyNonceSequence : NonceSequence {
+		private readonly string _value;
+
+		public DummyNonceSequence(string value) {
+			_value = value;
+		}
+
+		public string Next() {
+			return _value;
+		}
+	}
 }

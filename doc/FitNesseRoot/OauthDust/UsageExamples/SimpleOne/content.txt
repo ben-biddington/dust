@@ -1,0 +1,10 @@
+!3 An example
+We have not shown anywhere the characteristics of nonce and timestamp, perhaps they will fall out of this. 
+
+We know that [[we can authorization headers][./OauthDust.AndParameters.OauthHttpAuthorizationScheme]], and we know that [[we can create signatures][./OauthDust.SigningRequests.HmacSha1]] so all we have to do is assemble those parts.
+
+AuthorizationHeader is fairly dumb at the moment, it simply asks an OAuthParameters questions and formats the result. Is it "managing" OAuthParameters?
+
+OAuthParameters knows its nonce and timestamp -- how it gets those data is a concealed design decision. We can introduce a collaboration that produces those values. Which means OAuthParameters needs an introduction to people that maintain those data.
+
+the idea of a NonceSequence is appealing.

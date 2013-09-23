@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
-    public class OAuthParameters
+	public class OAuthParameters
     {
         private readonly ConsumerKey _key;
         private readonly TokenKey _tokenKey;
         private readonly string _signatureMethod;
         private readonly string _timestamp;
-        private readonly string _nonce;
+        private readonly NonceSequence _nonce;
     	private readonly string _signature;
     	private readonly string _version;
 
     	public OAuthParameters(
 			ConsumerKey key, 
-			TokenKey tokenKey,
+			TokenKey tokenKey, 
 			string signatureMethod, 
 			string timestamp, 
-			string nonce, 
-			string signature,
+			NonceSequence nonce, 
+			string signature, 
 			string version
 		)
         {
@@ -38,7 +37,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             new TokenKey(string.Empty), 
             string.Empty, 
             string.Empty, 
-            string.Empty, 
+            new DefaultNonceSequence(), 
 			string.Empty, 
 			string.Empty
         );
@@ -80,7 +79,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
     	}
 
     	internal Parameter Nonce {
-    		get { return new Parameter(Name.Nonce, _nonce); }
+    		get { return new Parameter(Name.Nonce, _nonce.Next()); }
     	}
 
     	internal Parameter Version {
