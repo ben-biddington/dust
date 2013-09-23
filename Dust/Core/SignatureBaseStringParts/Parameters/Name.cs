@@ -1,5 +1,3 @@
-using System;
-
 namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     class Name

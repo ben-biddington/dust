@@ -18,9 +18,17 @@ Authorization: OAuth realm="http://sp.example.com/",
 }}}
 
 !3 An example
-
 !|Given the oauth options                                                                                                        |
 |consumer key    |token           |signature method|signature                   |timestamp|nonce                         |version|
 |0685bd9184jfhq22|ad180jjd733klru7|HMAC-SHA1       |wOJIO9A2W5mFwDgiDvZbTSMK/PY=|137131200|4572616e48616d6d65724c61686176|1.0    |
 
-!|Then it equals|OAuth realm="http://sp.example.com/", oauth_consumer_key="0685bd9184jfhq22", oauth_token="ad180jjd733klru7", oauth_signature_method="HMAC-SHA1", oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D", oauth_timestamp="137131200", oauth_nonce="4572616e48616d6d65724c61686176", oauth_version="1.0"|
+!|Then it equals|OAuth oauth_consumer_key="0685bd9184jfhq22", oauth_token="ad180jjd733klru7", oauth_signature_method="HMAC-SHA1", oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D", oauth_timestamp="137131200", oauth_nonce="4572616e48616d6d65724c61686176", oauth_version="1.0"|
+
+!3 You can specify the realm if you like
+!|Given the oauth options                                                                                                        |
+|consumer key    |token           |signature method|signature                   |timestamp|nonce                         |version|
+|0685bd9184jfhq22|ad180jjd733klru7|HMAC-SHA1       |wOJIO9A2W5mFwDgiDvZbTSMK/PY=|137131200|4572616e48616d6d65724c61686176|1.0    |
+
+!|And realm|http://phil.berk/|
+
+!|Then it equals|OAuth realm="http://phil.berk/", oauth_consumer_key="0685bd9184jfhq22", oauth_token="ad180jjd733klru7", oauth_signature_method="HMAC-SHA1", oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D", oauth_timestamp="137131200", oauth_nonce="4572616e48616d6d65724c61686176", oauth_version="1.0"|

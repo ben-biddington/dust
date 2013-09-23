@@ -1,11 +1,14 @@
 ﻿using Dust.Core.SignatureBaseStringParts.Parameters;
+using System.Linq;
 
 namespace Dust.Http {
 	public class AuthorizationHeader {
 		private readonly OAuthParameters _oAuthParameters;
+		private readonly string _realm;
 
-		public AuthorizationHeader(OAuthParameters oAuthParameters) {
+		public AuthorizationHeader(OAuthParameters oAuthParameters, string realm) {
 			_oAuthParameters = oAuthParameters;
+			_realm = realm;
 		}
 
 		public string Value {
@@ -28,7 +31,7 @@ namespace Dust.Http {
 		}
 
 		private string Join(params string[] bits) {
-			return string.Join(", ", bits);
+			return string.Join(", ", bits.Where(it => false == it.Equals(string.Empty)).ToArray());
 		}
 
 		private string Version {
@@ -60,7 +63,13 @@ namespace Dust.Http {
 		}
 
 		private string Realm {
-			get { return "realm=\"http://sp.example.com/\""; }
+			get {
+				return HasRealm ? string.Format("realm=\"{0}\"", _realm) : string.Empty; 
+			}
+		}
+
+		private bool HasRealm {
+			get { return _realm != null; }
 		}
 
 		private string ToString(Parameter parameter) {
