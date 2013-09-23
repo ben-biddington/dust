@@ -14,16 +14,21 @@ namespace Dust.Http {
 
 		protected string Parameters {
 			get {
-				return 
-					"" + Realm + ", " +
-					"" + ConsumerKey + ", " +
-					"" + Token + ", " +
-					"" + SignatureMethod + ", " +
-					"" + Signature + ", " +
-					"" + Timestamp + ", " +
-					"" + Nonce + ", " +
-					"" + Version;
+				return Join(
+					Realm,
+					ConsumerKey,
+					Token,
+					SignatureMethod,
+					Signature,
+					Timestamp,
+					Nonce,
+					Version
+				);
 			}
+		}
+
+		private string Join(params string[] bits) {
+			return string.Join(", ", bits);
 		}
 
 		private string Version {
