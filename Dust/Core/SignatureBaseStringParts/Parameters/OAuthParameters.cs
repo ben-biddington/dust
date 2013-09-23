@@ -48,19 +48,43 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             return new List<Parameter>
             {
             	ConsumerKey, 
-				new Parameter(Name.Version, "1.0"),
-                new Parameter(Name.SignatureMethod, _signatureMethod),
-                new Parameter(Name.Timestamp, _timestamp),
-                new Parameter(Name.Nonce, _nonce)
+                Version,
+				SignatureMethod,
+                Timestamp,
+                Nonce
             }.Tap(it => {
 				if (_tokenKey.Exists) {
-					it.Add(new Parameter(Name.Token, _tokenKey.Value));
+					it.Add(Token);
 				}
 			}).Tap(it => it.Sort(new ParameterComparison()));
         }
 
+    	internal Parameter Token {
+    		get { return new Parameter(Name.Token, _tokenKey.Value); }
+    	}
+
     	internal Parameter ConsumerKey {
     		get { return new Parameter(Name.ConsumerKey, _key.Value); }
+    	}
+
+    	internal Parameter SignatureMethod {
+    		get { return new Parameter(Name.SignatureMethod, _signatureMethod); }
+    	}
+
+    	internal Parameter Signature {
+    		get { return new Parameter(Name.Signature, _signature); }
+    	}
+
+    	internal Parameter Timestamp {
+    		get { return new Parameter(Name.Timestamp, _timestamp); }
+    	}
+
+    	internal Parameter Nonce {
+    		get { return new Parameter(Name.Nonce, _nonce); }
+    	}
+
+    	internal Parameter Version {
+    		get { return new Parameter(Name.Version, "1.0"); }
     	}
     }
 }

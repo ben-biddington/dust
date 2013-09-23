@@ -1,5 +1,4 @@
-﻿using System;
-using Dust.Core.SignatureBaseStringParts.Parameters;
+﻿using Dust.Core.SignatureBaseStringParts.Parameters;
 
 namespace Dust.Http {
 	public class AuthorizationHeader {
@@ -16,25 +15,59 @@ namespace Dust.Http {
 		protected string Parameters {
 			get {
 				return 
-					"realm=\"http://sp.example.com/\", " +
+					"" + Realm + ", " +
 					"" + ConsumerKey + ", " +
-					"oauth_token=\"ad180jjd733klru7\", " +
-					"oauth_signature_method=\"HMAC-SHA1\", " +
-					"oauth_signature=\"wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D\", " +
-					"oauth_timestamp=\"137131200\", " +
-					"oauth_nonce=\"4572616e48616d6d65724c61686176\", " +
-					"oauth_version=\"1.0\"";
+					"" + Token + ", " +
+					"" + SignatureMethod + ", " +
+					"" + Signature + ", " +
+					"" + Timestamp + ", " +
+					"" + Nonce + ", " +
+					"" + Version;
 			}
 		}
 
-		protected string ConsumerKey {
-			get {
-				return string.Format("{0}=\"{1}\"", _oAuthParameters.ConsumerKey.Name, _oAuthParameters.ConsumerKey.Value);
-			}
+		private string Version {
+			get { return ToString(_oAuthParameters.Version); }
 		}
 
-		private Parameter Realm {
-			get { return new Parameter("realm", "http://sp.example.com"); }
+		private string Nonce {
+			get { return ToString(_oAuthParameters.Nonce); }
+		}
+
+		private string Timestamp {
+			get { return ToString(_oAuthParameters.Timestamp); }
+		}
+
+		private string Signature {
+			get { return ToString(_oAuthParameters.Signature); }
+		}
+
+		private string SignatureMethod {
+			get { return ToString(_oAuthParameters.SignatureMethod); }
+		}
+
+		private string Token {
+			get { return ToString(_oAuthParameters.Token);}
+		}
+
+		private string ConsumerKey {
+			get { return ToString(_oAuthParameters.ConsumerKey); }
+		}
+
+		private string Realm {
+			get { return "realm=\"http://sp.example.com/\""; }
+		}
+
+		private string ToString(Parameter parameter) {
+			return string.Format(
+				"{0}=\"{1}\"", 
+				parameter.Name, 
+				Escape(parameter.Value)
+			);
+		}
+
+		private string Escape(string value) {
+			return new ParameterEncoding().Escape(value);
 		}
 
 		private string Prefix {

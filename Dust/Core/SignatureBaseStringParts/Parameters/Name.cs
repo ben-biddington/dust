@@ -1,3 +1,5 @@
+using System;
+
 namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
     class Name
@@ -10,6 +12,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         internal static Name SignatureMethod = new Name("signature_method");
         internal static Name Timestamp = new Name("timestamp");
         public static Name Nonce = new Name("nonce");
+		internal static Name Signature = new Name("signature");
 
         internal Name(string value)
         {
@@ -21,7 +24,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             get { return _value; }
         }
 
-        public static implicit operator string(Name what)
+    	public static implicit operator string(Name what)
         {
             return what.Value;
         }
