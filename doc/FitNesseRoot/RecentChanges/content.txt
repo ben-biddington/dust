@@ -1,3 +1,4 @@
+|OauthDust.SigningRequests.HmacSha1||19:51:39 Mon, Sep 23, 2013|
 |OauthDust.AndParameters.OauthHttpAuthorizationScheme.AuthorizationHeader||16:24:59 Sun, Sep 22, 2013|
 |OauthDust.AndParameters.OauthHttpAuthorizationScheme.AuthorizationHeader.SetUp||16:21:32 Sun, Sep 22, 2013|
 |OauthDust.AndParameters.OauthHttpAuthorizationScheme||16:08:32 Sun, Sep 22, 2013|
@@ -6,7 +7,6 @@
 |OauthDust.SigningRequests.SignaturebaseStrings.ConcatenatingRequestElements||22:51:39 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.SignaturebaseStrings.ConstructingTheRequestUrl||22:50:36 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.SignaturebaseStrings.NormalizeRequestParameters||22:42:25 Sat, Sep 21, 2013|
-|OauthDust.SigningRequests.HmacSha1||22:05:45 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.SignaturebaseStrings||21:13:10 Sat, Sep 21, 2013|
 |OauthDust.SigningRequests.HmacSha1.SetUp||21:12:47 Sat, Sep 21, 2013|
 |OauthDust.SetUp||21:12:00 Sat, Sep 21, 2013|
