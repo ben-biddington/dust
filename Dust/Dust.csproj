@@ -70,9 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\DefaultNonceSequence.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\DefaultTimestampSequence.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\Timestamp\DefaultTimestampSequence.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\NonceSequence.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\TimestampSequence.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\Timestamp\TimestampSequence.cs" />
     <Compile Include="HmacSha1.cs" />
     <Compile Include="ConsumerKey.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Earl\EarlPart.cs" />

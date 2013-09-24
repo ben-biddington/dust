@@ -5,6 +5,7 @@ using Dust;
 using Dust.Core;
 using Dust.Core.SignatureBaseStringParts.Parameters;
 using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
+using Dust.Core.SignatureBaseStringParts.Parameters.Timestamp;
 using Dust.Http;
 using fit;
 using fitlibrary;

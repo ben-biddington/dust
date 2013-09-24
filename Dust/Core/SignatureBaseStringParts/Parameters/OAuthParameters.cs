@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
+using Dust.Core.SignatureBaseStringParts.Parameters.Timestamp;
 using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
