@@ -30,7 +30,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             _timestamp = timestamp;
             _nonce = nonce;
         	_signature = signature;
-    		_version = version;
+    		_version = version ?? "1.0";
     	}
 
         public static OAuthParameters Empty = new OAuthParameters(
@@ -40,7 +40,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             string.Empty, 
             new DefaultNonceSequence(), 
 			string.Empty, 
-			string.Empty
+			null
         );
 
     	internal List<Parameter> List()
@@ -88,7 +88,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
     	}
 
     	internal Parameter Version {
-    		get { return new Parameter(Name.Version, "1.0"); }
+    		get { return new Parameter(Name.Version, _version); }
     	}
     }
 }
