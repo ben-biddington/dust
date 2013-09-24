@@ -32,6 +32,10 @@ namespace Wiki.Machinery.SignatureBaseStrings {
             );
         }
 
+		public Fixture And_it_matches(string what) {
+			return Then_the_base_string_matches(what);
+		}
+
 		public Fixture Then_the_base_string_matches(string what) {
 			return new YesNoFixture(BaseString.Matches(Uri.EscapeDataString(what)), "Expected [" + BaseString.Value + "] to match pattern [" +  what + "]", 2);
 		}

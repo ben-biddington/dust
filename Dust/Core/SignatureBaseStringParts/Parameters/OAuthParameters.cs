@@ -9,8 +9,8 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         private readonly ConsumerKey _key;
         private readonly TokenKey _tokenKey;
         private readonly string _signatureMethod;
-        private readonly string _timestamp;
-        private readonly NonceSequence _nonce;
+        private readonly TimestampSequence _timestamps;
+        private readonly NonceSequence _nonces;
     	private string _signature;
     	private readonly string _version;
 
@@ -18,8 +18,8 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 			ConsumerKey key, 
 			TokenKey tokenKey, 
 			string signatureMethod, 
-			string timestamp, 
-			NonceSequence nonce, 
+			TimestampSequence timestamps, 
+			NonceSequence nonces, 
 			string signature, 
 			string version
 		)
@@ -27,8 +27,8 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             _key = key;
             _tokenKey = tokenKey;
             _signatureMethod = signatureMethod;
-            _timestamp = timestamp;
-            _nonce = nonce;
+            _timestamps = timestamps;
+            _nonces = nonces;
         	_signature = signature;
     		_version = version ?? "1.0";
     	}
@@ -37,7 +37,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
             new ConsumerKey(string.Empty), 
             new TokenKey(string.Empty), 
             string.Empty, 
-            string.Empty, 
+            new DefaultTimestampSequence(), 
             new DefaultNonceSequence(), 
 			string.Empty, 
 			null
@@ -80,11 +80,11 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
     	}
 
     	internal Parameter Timestamp {
-    		get { return new Parameter(Name.Timestamp, _timestamp); }
+    		get { return new Parameter(Name.Timestamp, _timestamps.Next()); }
     	}
 
     	internal Parameter Nonce {
-    		get { return new Parameter(Name.Nonce, _nonce.Next()); }
+    		get { return new Parameter(Name.Nonce, _nonces.Next()); }
     	}
 
     	internal Parameter Version {

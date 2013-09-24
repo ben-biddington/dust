@@ -1,6 +1,7 @@
 ﻿using System;
 using Dust;
 using Dust.Core.SignatureBaseStringParts.Parameters;
+using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
 using fit.Fixtures;
 
 namespace Wiki.Machinery
@@ -27,7 +28,7 @@ namespace Wiki.Machinery
                     new ConsumerKey(ConsumerKey), 
                     new TokenKey(Token), 
                     SignatureMethod, 
-                    Timestamp, 
+                    new DummyTimestampSequence(Timestamp), 
                     new DummyNonceSequence(Nonce), 
 					Signature, 
 					Version
@@ -37,6 +38,18 @@ namespace Wiki.Machinery
 
         public event Action<OAuthParameters> Added;
     }
+
+	internal class DummyTimestampSequence : TimestampSequence {
+		private readonly string _timestamp;
+
+		public DummyTimestampSequence(string timestamp) {
+			_timestamp = timestamp;
+		}
+
+		public string Next() {
+			return _timestamp;
+		}
+	}
 
 	internal class DummyNonceSequence : NonceSequence {
 		private readonly string _value;

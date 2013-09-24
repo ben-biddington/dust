@@ -23,7 +23,7 @@ namespace Wiki.Machinery.Examples {
 				_consumer.ConsumerKey, 
 				new TokenKey(string.Empty), 
 				"HMAC-SHA1", 
-				new DefaultTimestampSequence().Next(), 
+				new DefaultTimestampSequence(), 
 				new DefaultNonceSequence(), 
 				string.Empty, 
 				"1.0"
