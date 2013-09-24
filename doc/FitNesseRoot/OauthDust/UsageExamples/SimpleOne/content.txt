@@ -1,7 +1,7 @@
 !3 An example
 We have not shown anywhere the characteristics of nonce and timestamp, perhaps they will fall out of this. 
 
-We know that [[we can authorization headers][./OauthDust.AndParameters.OauthHttpAuthorizationScheme]], and we know that [[we can create signatures][./OauthDust.SigningRequests.HmacSha1]] so all we have to do is assemble those parts.
+We know that [[we can make authorization headers][./OauthDust.AndParameters.OauthHttpAuthorizationScheme]], and we know that [[we can create signatures][./OauthDust.SigningRequests.HmacSha1]] so all we have to do is assemble those parts.
 
 AuthorizationHeader is fairly dumb at the moment, it simply asks an OAuthParameters questions and formats the result. Is it "managing" OAuthParameters?
 
@@ -10,7 +10,8 @@ OAuthParameters knows its nonce and timestamp -- how it gets those data is a con
 the idea of a NonceSequence is appealing.
 
 !3 Twitter example
+You will need to create an application for yourself. You can see your list on [[your dashboard][https://dev.twitter.com/apps]]. Once you have one, make sure you have the consumer key and secret in your App.config (There is an example file there).
 
 !|Assuming we have a consumer for twitter|
 
-!|Then we can obtain a request token|
+!|Then we can connect|

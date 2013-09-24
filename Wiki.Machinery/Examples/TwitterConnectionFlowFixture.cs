@@ -18,7 +18,7 @@ namespace Wiki.Machinery.Examples {
 			_consumer = Settings.Twitter;
 		}
 
-		public Fixture Then_we_can_obtain_a_request_token() {
+		public Fixture Then_we_can_connect() {
 			var oAuthParameters = new OAuthParameters(
 				_consumer.ConsumerKey, 
 				new TokenKey(string.Empty), 
@@ -47,8 +47,6 @@ namespace Wiki.Machinery.Examples {
 			var req = (HttpWebRequest)WebRequest.Create("https://api.twitter.com/oauth/request_token");
 
 			req.Headers.Add("Authorization", header.Value);
-
-			Console.WriteLine(header.Value);
 
 			using (var response = (HttpWebResponse)req.GetResponse()) {
 				var expected = HttpStatusCode.OK;
