@@ -79,7 +79,6 @@
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Name.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\OAuthParameters.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Parameter.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterComparison.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterPart.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Parameters.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\RequestParameters.cs" />
