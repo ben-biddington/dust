@@ -8,7 +8,7 @@ OAuth aims to unify the experience and implementation of delegated web service a
 
 !contents -R2 -g -p -f -h
 !*****> Default setup
-!define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,fit.dll %p}
+!define COMMAND_PATTERN {%m -a ..\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll.config -r fitnesse.fitserver.FitServer,fit.dll %p}
 !define TEST_RUNNER {Runner.exe}
 !define PATH_SEPARATOR {;}
 !path ..\Wiki.Machinery\bin\Debug\Wiki.Machinery.dll

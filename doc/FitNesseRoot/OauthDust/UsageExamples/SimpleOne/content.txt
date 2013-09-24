@@ -8,3 +8,9 @@ AuthorizationHeader is fairly dumb at the moment, it simply asks an OAuthParamet
 OAuthParameters knows its nonce and timestamp -- how it gets those data is a concealed design decision. We can introduce a collaboration that produces those values. Which means OAuthParameters needs an introduction to people that maintain those data.
 
 the idea of a NonceSequence is appealing.
+
+!3 Twitter example
+
+!|Assuming we have a consumer for twitter|
+
+!|Then we can obtain a request token|

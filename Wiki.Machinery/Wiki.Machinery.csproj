@@ -60,6 +60,7 @@
       <HintPath>..\lib\fitSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -74,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\Settings.cs" />
+    <Compile Include="Examples\TwitterConnectionFlowFixture.cs" />
     <Compile Include="Http\AuthorizationHeaderExtensions.cs" />
     <Compile Include="Http\AuthorizationHeaderFlowFixture.cs" />
     <Compile Include="Signing\HmacSigningFlowFixture.cs" />
@@ -101,6 +104,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

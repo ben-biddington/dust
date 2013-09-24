@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
 using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
@@ -10,7 +11,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         private readonly string _signatureMethod;
         private readonly string _timestamp;
         private readonly NonceSequence _nonce;
-    	private readonly string _signature;
+    	private string _signature;
     	private readonly string _version;
 
     	public OAuthParameters(
@@ -70,7 +71,11 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
     		get { return new Parameter(Name.SignatureMethod, _signatureMethod); }
     	}
 
-    	internal Parameter Signature {
+		public void SetSignature(string what) {
+			_signature = what;
+		}
+
+		internal Parameter Signature {
     		get { return new Parameter(Name.Signature, _signature); }
     	}
 

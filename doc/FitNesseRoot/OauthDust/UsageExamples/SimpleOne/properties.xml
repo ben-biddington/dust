@@ -4,11 +4,10 @@
 	<Files/>
 	<Help></Help>
 	<Properties/>
-	<Prune/>
 	<RecentChanges/>
 	<Refactor/>
 	<Search/>
-	<Suites></Suites>
+	<Suites>system</Suites>
 	<Test/>
 	<Versions/>
 	<WhereUsed/>
