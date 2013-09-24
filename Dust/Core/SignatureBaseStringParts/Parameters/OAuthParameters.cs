@@ -43,21 +43,19 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 			null
         );
 
-    	internal List<Parameter> List()
-        {
-            return new List<Parameter>
-            {
-            	ConsumerKey, 
-                Version,
-				SignatureMethod,
-                Timestamp,
-                Nonce
-            }.Tap(it => {
-				if (_tokenKey.Exists) {
-					it.Add(Token);
-				}
-			}).Tap(it => it.Sort(new ParameterComparison()));
-        }
+    	internal Parameters List() {
+    		return new Parameters(
+    				ConsumerKey,
+    				Version,
+    				SignatureMethod,
+    				Timestamp,
+    				Nonce
+				).Tap(it => {
+					if (_tokenKey.Exists) {
+    					it.Add(Token);
+					}
+				});
+    	}
 
     	internal Parameter Token {
     		get { return new Parameter(Name.Token, _tokenKey.Value); }

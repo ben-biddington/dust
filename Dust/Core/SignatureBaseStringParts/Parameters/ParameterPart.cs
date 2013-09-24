@@ -1,4 +1,5 @@
-﻿using Dust.Lang;
+﻿using System.Collections.Generic;
+using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters {
 	internal class ParameterPart {
@@ -20,15 +21,15 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters {
 			return new ParameterEncoding().Escape(what);
 		}
 
-		private Parameters Parameters {
+		private IEnumerable<Parameter> Parameters {
 			get {
-				return new QueryString(_request).Parameters.Tap(it => it.Add(OAuthParameters));
+				return new RequestParameters(_request).Tap(it => it.Add(OAuthParameters));
 			}
 		}
 
-		private Parameter[] OAuthParameters {
+		private Parameters OAuthParameters {
 			get {
-				return _oAuthParameters.List().ToArray();
+				return _oAuthParameters.List();
 			}
 		}
 	}

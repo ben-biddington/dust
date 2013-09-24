@@ -82,7 +82,7 @@
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterComparison.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterPart.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Parameters.cs" />
-    <Compile Include="Core\SignatureBaseStringParts\Parameters\QueryString.cs" />
+    <Compile Include="Core\SignatureBaseStringParts\Parameters\RequestParameters.cs" />
     <Compile Include="Core\SignatureBaseString.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterEncoding.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Verb\VerbPart.cs" />

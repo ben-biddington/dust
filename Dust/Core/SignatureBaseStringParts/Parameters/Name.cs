@@ -5,7 +5,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         private readonly string _value;
 
         internal static Name Version = new Name("version");
-        internal static Name ConsumerKey = new Name("consumer_key");
+        internal static Name ConsumerKey = new Name("consumer_key"); 
         internal static Name Token = new Name("token");
         internal static Name SignatureMethod = new Name("signature_method");
         internal static Name Timestamp = new Name("timestamp");
