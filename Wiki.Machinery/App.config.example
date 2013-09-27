@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-	<appSettings>
-		<add key="twitter.consumer.key" value="YOUR_KEY" />
-		<add key="twitter.consumer.secret" value="YOUR_SECRET" />
-	</appSettings>
-</configuration>

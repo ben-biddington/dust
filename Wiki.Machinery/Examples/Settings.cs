@@ -13,9 +13,13 @@ namespace Wiki.Machinery.Examples {
 		private static string Secret { get { return SettingFor("twitter.consumer.secret"); } }
 
 		private static string SettingFor(string name) {
-			return ConfigurationManager.AppSettings[name].Tap(it => {
-				if (null == it)
-	                throw new Exception("Unable to locate appsetting for [" + name + "]. Do you have an App.config?");                                  	
+			return ConfigurationManager.AppSettings[name].Tap(it =>
+			{
+			    if (null == it)
+	                throw new Exception("Unable to locate appsetting for [" + name + "]. Do you have an App.config?");
+
+                if (it.Trim().StartsWith("YOUR_"))
+                    throw new Exception("The appsetting for [" + name + "] seems to have the default value. Have you forgotten to set it?");
 			});
 		}
 	}
