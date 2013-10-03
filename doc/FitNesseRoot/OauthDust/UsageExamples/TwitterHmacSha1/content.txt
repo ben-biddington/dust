@@ -1,0 +1,8 @@
+To make this work you will need to add settings to your '''App.config'''.
+
+!3 Twitter example
+You will need to create an application for yourself. You can see your list on [[your dashboard][https://dev.twitter.com/apps]]. Once you have one, make sure you have the consumer key and secret in your App.config (There is an example file there).
+
+!|Assuming we have a consumer for twitter|
+
+!|Then we can connect|
