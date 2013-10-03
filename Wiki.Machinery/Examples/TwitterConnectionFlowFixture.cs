@@ -11,7 +11,7 @@ using fitlibrary;
 using Wiki.Machinery.Support;
 
 namespace Wiki.Machinery.Examples {
-	public class TwitterConnectionFlowFixture : DoFixture {
+    public class TwitterConnectionFlowFixture : DoFixture {
 		private Consumer _consumer;
 
 		public void Assuming_we_have_a_consumer_for_twitter() {

@@ -1,3 +1,5 @@
+|OauthDust.UsageExamples.XeroRsaSha1||09:33:10 Fri, Oct 04, 2013|
+|OauthDust.UsageExamples.XeroRsaSha1.SetUp||09:27:53 Fri, Oct 04, 2013|
 |OauthDust.UsageExamples.TwitterHmacSha1||14:59:32 Fri, Sep 27, 2013|
 |OauthDust.SigningRequests.SignaturebaseStrings.NormalizeRequestParameters||21:41:35 Tue, Sep 24, 2013|
 |OauthDust.UsageExamples.SimpleOne||13:59:48 Tue, Sep 24, 2013|
