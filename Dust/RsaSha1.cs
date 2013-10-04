@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Dust.Core;
 using Dust.Lang;
 
 namespace Dust
@@ -19,43 +18,42 @@ namespace Dust
 
         public string Sign(string signatureBaseString)
         {
-            return GenerateSignature(signatureBaseString).Tap(it =>
-            {
-                Console.WriteLine("VALIDATES => {0}", ValidateSignature(signatureBaseString, it));
-            });
+            return SignCore(signatureBaseString);
         }
 
-        string GenerateSignature(string baseString)
+        string SignCore(string baseString)
         {
-            SHA1CryptoServiceProvider sha1 = GenerateHash(baseString);
+            using (var hash = Hash(baseString))
+            {
+                return Base64Encode(Sign(hash));
+            }
+        }
 
-            var formatter = new RSAPKCS1SignatureFormatter(_certificate.PrivateKey);
-            formatter.SetHashAlgorithm("MD5");
-
-            byte[] signature = formatter.CreateSignature(sha1);
-
+        private static string Base64Encode(byte[] signature)
+        {
             return Convert.ToBase64String(signature);
         }
 
-        public bool ValidateSignature(string baseString, string signature)
+        private byte[] Sign(SHA1CryptoServiceProvider hash)
         {
-            SHA1CryptoServiceProvider sha1 = GenerateHash(baseString);
+            var formatter = new RSAPKCS1SignatureFormatter(_certificate.PrivateKey).
+                Tap(it => it.SetHashAlgorithm("MD5"));
 
-            var deformatter = new RSAPKCS1SignatureDeformatter(_certificate.PrivateKey);
-            deformatter.SetHashAlgorithm("MD5");
-
-            return deformatter.VerifySignature(sha1, Convert.FromBase64String(signature));
+            return formatter.CreateSignature(hash);
         }
 
-        SHA1CryptoServiceProvider GenerateHash(string signtureBaseString)
+        SHA1CryptoServiceProvider Hash(string signatureBaseString)
         {
             var sha1 = new SHA1CryptoServiceProvider();
 
-            byte[] dataBuffer = Encoding.ASCII.GetBytes(signtureBaseString);
+            var bytes = Encoding.ASCII.GetBytes(signatureBaseString);
 
-            var cs = new CryptoStream(Stream.Null, sha1, CryptoStreamMode.Write);
-            cs.Write(dataBuffer, 0, dataBuffer.Length);
-            cs.Close();
+            using (var cs = new CryptoStream(Stream.Null, sha1, CryptoStreamMode.Write))
+            {
+                cs.Write(bytes, 0, bytes.Length);
+                cs.Close();
+            }
+
             return sha1;
         }
     }
