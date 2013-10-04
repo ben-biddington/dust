@@ -1,10 +1,10 @@
-This is a simple [[private application][http://developer.xero.com/documentation/getting-started/private-applications/]] example. Turns out that the consumer secret is not used at all.
+This is a simple [[private application][http://developer.xero.com/documentation/getting-started/private-applications/]] example. Turns out that the consumer secret is not used at all -- you can specify anything or nothing.
 
-Also appears we need to trim trailing slashes from earls for the signature base string.
-
+Also appears we need to trim trailing slashes from earls for the signature base string. 
 !3 An example
 
 |Assuming we have a consumer for Xero|
+For this to work you'll need a signing certificate which is the .pfx counterpart to the .cer file you upload as the '''Public Key Certificate''' when [[editing private application][https://api.xero.com/Application]].
 
 |And a signing certificate|
 
