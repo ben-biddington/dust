@@ -1,15 +1,9 @@
-﻿using System;
-using Dust.Core.SignatureBaseStringParts.Earl;
+﻿using Dust.Core.SignatureBaseStringParts.Earl;
 using Dust.Core.SignatureBaseStringParts.Parameters;
 using Dust.Core.SignatureBaseStringParts.Verb;
 
 namespace Dust.Core {
-	public class Request {
-		public Uri Url { get; set; }
-		public string Verb { get; set; }
-	}
-
-	public class SignatureBaseString {
+    public class SignatureBaseString {
 		private readonly Request _request;
 		private readonly OAuthParameters _oAuthParameters;
 
@@ -39,5 +33,10 @@ namespace Dust.Core {
 		protected string Parameters {
 			get { return new ParameterPart(_request, _oAuthParameters).Value; }
 		}
+
+        public static implicit operator string(SignatureBaseString self)
+        {
+            return self.Value;
+        }
 	}
 }

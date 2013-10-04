@@ -1,0 +1,11 @@
+This is a simple [[private application][http://developer.xero.com/documentation/getting-started/private-applications/]] example. Turns out that the consumer secret is not used at all.
+
+Also appears we need to trim trailing slashes from earls for the signature base string.
+
+!3 An example
+
+|Assuming we have a consumer for Xero|
+
+|And a signing certificate|
+
+|Then we can connect|

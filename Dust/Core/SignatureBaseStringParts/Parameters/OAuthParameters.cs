@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
+﻿using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
 using Dust.Lang;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
@@ -9,12 +8,21 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
         private readonly ConsumerKey _key;
         private readonly TokenKey _tokenKey;
         private readonly string _signatureMethod;
-        private readonly TimestampSequence _timestamps;
-        private readonly NonceSequence _nonces;
-    	private string _signature;
+	    private string _signature;
     	private readonly string _version;
+        private readonly string _nonce, _timestamp;
 
-    	public OAuthParameters(
+	    public static OAuthParameters Empty = new OAuthParameters(
+	        new ConsumerKey(string.Empty), 
+	        new TokenKey(string.Empty), 
+	        string.Empty, 
+	        new DefaultTimestampSequence(), 
+	        new DefaultNonceSequence(), 
+	        string.Empty, 
+	        null
+        );
+
+	    public OAuthParameters(
 			ConsumerKey key, 
 			TokenKey tokenKey, 
 			string signatureMethod, 
@@ -24,26 +32,17 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 			string version
 		)
         {
-            _key = key;
+    	    _key = key;
             _tokenKey = tokenKey;
             _signatureMethod = signatureMethod;
-            _timestamps = timestamps;
-            _nonces = nonces;
-        	_signature = signature;
+    	    _signature = signature;
     		_version = version ?? "1.0";
-    	}
 
-        public static OAuthParameters Empty = new OAuthParameters(
-            new ConsumerKey(string.Empty), 
-            new TokenKey(string.Empty), 
-            string.Empty, 
-            new DefaultTimestampSequence(), 
-            new DefaultNonceSequence(), 
-			string.Empty, 
-			null
-        );
+    	    _nonce = nonces.Next();
+    	    _timestamp = timestamps.Next();
+        }
 
-    	internal Parameters List() {
+	    internal Parameters List() {
     		return new Parameters(
     				ConsumerKey,
     				Version,
@@ -78,11 +77,11 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
     	}
 
     	internal Parameter Timestamp {
-    		get { return new Parameter(Name.Timestamp, _timestamps.Next()); }
+    		get { return new Parameter(Name.Timestamp, _timestamp); }
     	}
 
     	internal Parameter Nonce {
-    		get { return new Parameter(Name.Nonce, _nonces.Next()); }
+    		get { return new Parameter(Name.Nonce, _nonce); }
     	}
 
     	internal Parameter Version {

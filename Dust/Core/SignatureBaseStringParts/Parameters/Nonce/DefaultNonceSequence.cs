@@ -1,7 +1,9 @@
-﻿namespace Dust.Core.SignatureBaseStringParts.Parameters.Nonce {
+﻿using System;
+
+namespace Dust.Core.SignatureBaseStringParts.Parameters.Nonce {
 	public class DefaultNonceSequence : NonceSequence {
 		public string Next() {
-			return string.Empty;
+			return Guid.NewGuid().ToString();
 		}
 	}
 }
