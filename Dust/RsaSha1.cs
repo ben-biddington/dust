@@ -48,10 +48,9 @@ namespace Dust
 
             var bytes = Encoding.ASCII.GetBytes(signatureBaseString);
 
-            using (var cs = new CryptoStream(Stream.Null, sha1, CryptoStreamMode.Write))
+            using (var crypto = new CryptoStream(Stream.Null, sha1, CryptoStreamMode.Write))
             {
-                cs.Write(bytes, 0, bytes.Length);
-                cs.Close();
+                crypto.Write(bytes, 0, bytes.Length);
             }
 
             return sha1;
