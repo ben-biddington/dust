@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consumer.cs" />
     <Compile Include="Core\Request.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\DefaultNonceSequence.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\DefaultTimestampSequence.cs" />

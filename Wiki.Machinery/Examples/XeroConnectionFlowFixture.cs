@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using Dust;
@@ -9,6 +8,7 @@ using Dust.Core.SignatureBaseStringParts.Parameters.Nonce;
 using Dust.Http;
 using fit;
 using fitlibrary;
+using Wiki.Machinery.Http;
 using Wiki.Machinery.Support;
 
 namespace Wiki.Machinery.Examples
@@ -62,31 +62,11 @@ namespace Wiki.Machinery.Examples
 
             req.Headers.Add("Authorization", header.Value);
 
-            using (var response = Get(req))
-            {
-                var expected = HttpStatusCode.OK;
-                var actual = response.StatusCode;
-                var body = string.Empty;
+            var response = TInternet.Get(req);
+            const HttpStatusCode expected = HttpStatusCode.OK;
+            var actual = response.StatusCode;
 
-                using (var rdr = new StreamReader(response.GetResponseStream()))
-                {
-                    body = rdr.ReadToEnd();
-                }
-
-                return new YesNoFixture(actual == expected, "Expected [" + expected + "]. Got [" + actual + "]. And here is the body: " + body, 2);
-            }
-        }
-
-        private HttpWebResponse Get(HttpWebRequest req)
-        {
-            try
-            {
-                return (HttpWebResponse) req.GetResponse();
-            }
-            catch (WebException e)
-            {
-                return (HttpWebResponse) e.Response;
-            }
+            return new YesNoFixture(actual == expected, "Expected [" + expected + "]. Got [" + actual + "]. And here is the body: " + response.Body, 2);
         }
     }
 }

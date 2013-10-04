@@ -75,7 +75,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Http\Response.cs" />
     <Compile Include="Examples\Settings.cs" />
+    <Compile Include="Http\TInternet.cs" />
     <Compile Include="Examples\TwitterConnectionFlowFixture.cs" />
     <Compile Include="Examples\XeroConnectionFlowFixture.cs" />
     <Compile Include="Http\AuthorizationHeaderExtensions.cs" />
