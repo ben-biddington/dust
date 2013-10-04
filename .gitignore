@@ -109,3 +109,5 @@ UpgradeLog*.XML
 *.zip
 doc/FitNesseRoot/ErrorLogs/
 Wiki.Machinery/App.config
+certs/
+doc/certs/

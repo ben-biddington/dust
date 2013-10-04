@@ -75,8 +75,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Http\Response.cs" />
     <Compile Include="Examples\Settings.cs" />
+    <Compile Include="Http\TInternet.cs" />
     <Compile Include="Examples\TwitterConnectionFlowFixture.cs" />
+    <Compile Include="Examples\XeroConnectionFlowFixture.cs" />
     <Compile Include="Http\AuthorizationHeaderExtensions.cs" />
     <Compile Include="Http\AuthorizationHeaderFlowFixture.cs" />
     <Compile Include="Signing\HmacSigningFlowFixture.cs" />
@@ -106,7 +109,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.example.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

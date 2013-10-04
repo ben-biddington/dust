@@ -69,6 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consumer.cs" />
+    <Compile Include="Core\Request.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\DefaultNonceSequence.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Timestamp\DefaultTimestampSequence.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Parameters\Nonce\NonceSequence.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterEncoding.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Verb\VerbPart.cs" />
     <Compile Include="Http\AuthorizationHeader.cs" />
+    <Compile Include="RsaSha1.cs" />
     <Compile Include="TokenKey.cs" />
     <Compile Include="Lang\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

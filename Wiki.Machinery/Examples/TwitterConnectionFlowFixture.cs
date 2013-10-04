@@ -9,10 +9,11 @@ using Dust.Core.SignatureBaseStringParts.Parameters.Timestamp;
 using Dust.Http;
 using fit;
 using fitlibrary;
+using Wiki.Machinery.Http;
 using Wiki.Machinery.Support;
 
 namespace Wiki.Machinery.Examples {
-	public class TwitterConnectionFlowFixture : DoFixture {
+    public class TwitterConnectionFlowFixture : DoFixture {
 		private Consumer _consumer;
 
 		public void Assuming_we_have_a_consumer_for_twitter() {
@@ -49,32 +50,11 @@ namespace Wiki.Machinery.Examples {
 
 			req.Headers.Add("Authorization", header.Value);
 
-			using (var response = (HttpWebResponse)req.GetResponse()) {
-				var expected = HttpStatusCode.OK;
-				var actual = response.StatusCode;
-				
-				using(var rdr = new StreamReader(response.GetResponseStream()))
+            var response = TInternet.Get(req);
+            const HttpStatusCode expected = HttpStatusCode.OK;
+            var actual = response.StatusCode;
 
-				return new YesNoFixture(actual == expected, "Expected [" + expected +"]. Got [" +  actual+ "]", 2);
-			}
-		}
-	}
-
-	public class Consumer {
-		private readonly ConsumerKey _consumerKey;
-		private readonly string _secret;
-
-		public Consumer(ConsumerKey consumerKey, string secret) {
-			_consumerKey = consumerKey;
-			_secret = secret;
-		}
-
-		public ConsumerKey ConsumerKey {
-			get { return _consumerKey; }
-		}
-
-		public string Secret {
-			get { return _secret; }
+		    return new YesNoFixture(actual == expected, "Expected [" + expected +"]. Got [" +  actual+ "]", 2);
 		}
 	}
 }
