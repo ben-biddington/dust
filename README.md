@@ -1,4 +1,4 @@
 dust
 ====
 
-OAuth that doesn't suck balls
+Sensible OAuth.
