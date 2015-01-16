@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Web;
+using Dust.Http;
 
 namespace Dust.Core.SignatureBaseStringParts.Parameters
 {
@@ -24,11 +24,11 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters
 
     	private IEnumerable<Parameter> Map(string key)
         {
-    		return ValueFor(key).Split(',').Select(v => new Parameter(key, v));
+    		return ValuesFor(key).Select(v => new Parameter(key, v));
         }
 
-    	private string ValueFor(string key) {
-    		return _values[key];
+    	private string[] ValuesFor(string key) {
+    		return _values.GetValues(key);
     	}
 
     	#region Implementation of IEnumerable

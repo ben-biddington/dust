@@ -88,6 +88,8 @@
     <Compile Include="Core\SignatureBaseStringParts\Parameters\ParameterEncoding.cs" />
     <Compile Include="Core\SignatureBaseStringParts\Verb\VerbPart.cs" />
     <Compile Include="Http\AuthorizationHeader.cs" />
+    <Compile Include="Http\HttpEncoder.cs" />
+    <Compile Include="Http\HttpUtility.cs" />
     <Compile Include="RsaSha1.cs" />
     <Compile Include="TokenKey.cs" />
     <Compile Include="Lang\ObjectExtensions.cs" />
