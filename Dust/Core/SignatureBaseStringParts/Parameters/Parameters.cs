@@ -51,7 +51,7 @@ namespace Dust.Core.SignatureBaseStringParts.Parameters {
 			}
 
 			private int CompareCore(string x, string y) {
-				return string.Compare(x, y, StringComparison.InvariantCulture);
+				return string.Compare(x, y, StringComparison.Ordinal);
 			}
 		}
 	}
